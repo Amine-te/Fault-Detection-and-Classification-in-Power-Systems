@@ -27,6 +27,7 @@ Contents
    :maxdepth: 2
    :caption: User Guide
 
+   introduction
    installation
    models
    dashboard
