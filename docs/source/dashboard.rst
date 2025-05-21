@@ -1,208 +1,294 @@
-Power System Anomaly Dashboard
-==============================
+==========
+Dashboard
+==========
 
-Introduction
-------------
+PowerAI includes an interactive Streamlit-based dashboard for visualizing power system data, detecting anomalies, and classifying faults. This document provides a comprehensive guide to using the dashboard effectively.
 
-The Power System Anomaly Dashboard is an interactive web application built with Streamlit that provides comprehensive anomaly detection and classification for power system data. It allows engineers and analysts to identify, analyze, and categorize faults in electrical power systems through a user-friendly interface.
-
-.. image:: https://via.placeholder.com/800x400.png
-   :alt: Power System Anomaly Dashboard
+.. figure:: _static/dashboard_full.png
+   :alt: PowerAI Dashboard
    :align: center
 
-Features
---------
+   PowerAI's interactive dashboard for power system fault detection and analysis
 
-- **Data Importing**: Upload and visualize power system data in CSV format
-- **Model Integration**: Import pre-trained anomaly detection and classification models
-- **Anomaly Detection**: Identify anomalous events in power signal data
-- **Fault Classification**: Categorize detected anomalies into specific fault types
-- **Interactive Visualization**: Explore signals, anomalies, and analysis results through dynamic charts
-- **Reporting**: Export analysis results and generate summary reports
+Getting Started
+===============
 
-System Requirements
--------------------
-
-- Python 3.7+
-- Required packages:
-  
-  - `streamlit`
-  - `pandas`
-  - `numpy`
-  - `matplotlib`
-  - `seaborn`
-  - `joblib`
-  - `tensorflow`
-  - `scipy`
-  - `plotly`
-
-Installation
-------------
-
-1. Clone the repository or download the dashboard script.
-2. Install the required packages:
-
-::
-
-   pip install streamlit pandas numpy matplotlib seaborn joblib tensorflow scipy plotly
-
-3. Launch the dashboard:
-
-::
-
-   streamlit run dashboard.py
-
-Input Data Format
------------------
-
-The dashboard requires CSV data with the following columns:
-
-- **Time**: Timestamps for the signals
-- **Voltage signals**: Va, Vb, Vc (three-phase voltage measurements)
-- **Current signals**: Ia, Ib, Ic (three-phase current measurements)
-
-Required Models
----------------
-
-The dashboard requires pre-trained models for operation:
-
-1. **Anomaly Detector**:
-
-   - LSTM Autoencoder model (`.h5` file)
-   - `StandardScaler` (`.joblib` file)
-
-2. **Fault Classifier**:
-
-   - Classification model (`.joblib` file)
-   - `StandardScaler` (`.joblib` file)
-   - Class names mapping (`.joblib` file)
-
-User Guide
-----------
-
-### Step 1: Data Import
-
-1. Navigate to the "Data Import" tab.
-2. Upload your power system CSV data.
-3. Preview and visualize the data.
-4. Ensure the following columns are present: Time, Va, Vb, Vc, Ia, Ib, Ic.
-
-### Step 2: Model Import
-
-1. Go to the "Model Import" tab.
-2. Upload:
-   - Autoencoder model (`.h5`) and scaler.
-   - Classifier model (`.joblib`), scaler, and class names.
-3. Configure:
-   - Sequence Length (default: 50)
-   - Anomaly Threshold Percentile (default: 95%)
-   - Max Merge Gap (default: 1500 samples)
-4. Click **Run Analysis**.
-
-### Step 3: Analysis & Results
-
-- View metrics: total anomalies, fault types, average anomaly duration.
-- Review detected anomaly intervals.
-- Explore visual analytics (distribution, timeline, etc.).
-
-### Step 4: Visualization
-
-Choose from:
-
-- **Signal Visualization with Anomalies**
-- **Reconstruction Error**
-- **Feature Importance**
-
-Export Options
---------------
-
-- **Download Results as CSV**
-- **Download Summary Report** (Markdown format)
-
-Technical Details
------------------
-
-### Anomaly Detection Approach
-
-1. **Preprocessing**:
-   - Normalize (StandardScaler)
-   - Create overlapping sequences
-
-2. **Autoencoder**:
-   - LSTM autoencoder detects reconstruction error
-   - Threshold using percentile
-
-3. **Merging**:
-   - Merge intervals using `merge_intervals`
-
-4. **Feature Extraction**:
-   - Mean, std, skew, kurtosis, RMS, crest factor, correlations
-
-5. **Classification**:
-   - Normalize features
-   - Classify using trained model
-   - Confidence score (if applicable)
-
-Functions Reference
--------------------
-
-**extract_features(data, interval)**
-
-- Extracts statistical and signal-based features.
-- Returns a feature dictionary.
-
-**preprocess_data(data, scaler, sequence_length)**
-
-- Normalizes and sequences data for autoencoder input.
-- Returns a numpy array: `(n_sequences, sequence_length, n_features)`
-
-**merge_intervals(intervals, max_gap_samples, sample_time)**
-
-- Merges nearby intervals.
-- Returns a list of merged `(start_time, end_time)` tuples.
-
-**detect_anomalies(data, detector_model, detector_scaler, sequence_length, percentile)**
-
-- Returns anomaly flags, reconstruction error, window timestamps, intervals, and threshold.
-
-**predict_anomaly_intervals(data, interval_list, classifier_model, classifier_scaler, class_names)**
-
-- Classifies intervals into fault types.
-- Returns a DataFrame with predictions and confidence.
-
-Customization
--------------
-
-You can:
-
-- Change sequence length and thresholds
-- Modify `extract_features` for new features
-- Enhance visualizations via Streamlit
-- Adjust UI components
-
-Troubleshooting
----------------
-
-**Common Issues**:
-
-- **Missing Columns**: Ensure data has required columns.
-- **Model Load Failures**: Check model and scaler file compatibility.
-- **Memory Errors**: Use smaller files or downsample data.
-- **No Anomalies Detected**: Lower the threshold.
-
-Performance Optimization
+Launching the Dashboard
 ------------------------
 
-- Automatic downsampling for large files
-- Tips:
-  - Analyze smaller periods
-  - Tune sequence length
-  - Use higher-spec machines
+To launch the PowerAI dashboard:
 
-References
-----------
+**Using the CLI:**
 
-- `Streamlit <https://streamlit.io/>`_
-- `TensorFlow <https://www.tensorflow.org/>`_
-- `Plotly <https://plotly.com/>`_
-- `Joblib <https://joblib.readthedocs.io/>`_
+.. code-block:: bash
+
+   powerai dashboard
+
+**Or with Python:**
+
+.. code-block:: bash
+
+   python -m powerai.dashboard
+
+The dashboard will start and be accessible at http://localhost:8501 in your web browser.
+
+**Command-line Options:**
+
+.. code-block:: bash
+
+   powerai dashboard --port 8502       # Use a different port
+   powerai dashboard --theme dark      # Use dark theme
+   powerai dashboard --wide            # Use wide mode layout
+
+Dashboard Interface
+===================
+
+The dashboard is divided into four main tabs:
+
+- **Data Import**: Upload and preview power system data
+- **Model Import**: Import anomaly detection and fault classification models
+- **Analysis & Results**: View detected anomalies and fault classifications
+- **Visualization**: Detailed visualizations of signals and anomalies
+
+Data Import Tab
+===============
+
+.. figure:: _static/data_import_tab.png
+   :alt: Data Import Tab
+   :align: center
+
+This tab allows you to:
+
+- **Upload CSV Data**: The file should contain:
+
+  - Time column (timestamps)
+  - Voltage signals (Va, Vb, Vc)
+  - Current signals (Ia, Ib, Ic)
+
+- **View Data Preview**: Sample of the uploaded data
+- **Visualize Signals**: Interactive plots of voltage and current signals
+
+**Data Format Requirements**
+----------------------------
+
+Your CSV file should follow this format:
+
+.. code-block:: none
+
+   Time,Va,Vb,Vc,Ia,Ib,Ic
+   0.000,220.1,220.3,219.8,5.1,5.2,5.0
+   0.001,220.2,220.1,219.9,5.2,5.1,5.1
+   ...
+
+Notes:
+
+- Time column should be in seconds
+- Voltage columns (Va, Vb, Vc) typically in volts
+- Current columns (Ia, Ib, Ic) typically in amperes
+- Regular sampling rate is recommended
+- No missing values in critical columns
+
+Model Import Tab
+================
+
+.. figure:: _static/model_import_tab.png
+   :alt: Model Import Tab
+   :align: center
+
+In this tab, you can:
+
+- **Import Anomaly Detector:**
+  - Upload detector model (.h5 file)
+  - Upload detector scaler (joblib file)
+
+- **Import Fault Classifier:**
+  - Upload classifier model (joblib file)
+  - Upload classifier scaler (joblib file)
+  - Upload class names mapping (joblib file)
+
+- **Set Analysis Parameters:**
+  - Sequence Length: Window size for anomaly detection
+  - Anomaly Threshold Percentile: Sensitivity of anomaly detection
+  - Max Merge Gap: Maximum gap between anomalies to merge them
+
+- **Run Analysis**: Process data with the loaded models
+
+**File Types Overview**
+-----------------------
+
+.. list-table::
+   :header-rows: 1
+   :widths: 25 25 50
+
+   * - Component
+     - File Type
+     - Description
+   * - Detector Model
+     - .h5
+     - TensorFlow LSTM autoencoder model
+   * - Detector Scaler
+     - .joblib
+     - StandardScaler for preprocessing input data
+   * - Classifier Model
+     - .joblib
+     - Trained machine learning classifier
+   * - Classifier Scaler
+     - .joblib
+     - Scaler for feature preprocessing
+   * - Class Names
+     - .joblib
+     - Dictionary mapping class indices to fault names
+
+Analysis & Results Tab
+======================
+
+.. figure:: _static/analysis_tab.png
+   :alt: Analysis Tab
+   :align: center
+
+After running the analysis, this tab shows:
+
+- **Summary Metrics**:
+  - Total number of detected anomalies
+  - Number of unique fault types
+  - Average anomaly duration
+
+- **Detected Anomalies Table**:
+  - Start and end times of each anomaly
+  - Predicted fault type
+  - Confidence level for each prediction
+  - Duration of each anomaly
+
+- **Fault Type Distribution**:
+  - Bar chart showing the distribution of detected fault types
+
+- **Anomaly Timeline**:
+  - Timeline visualization of all detected anomalies
+
+**Understanding Classification Results**
+----------------------------------------
+
+The fault classification results include:
+
+- Predicted Fault: The type of fault detected
+- Confidence: Probability estimate for the prediction
+- Duration: Time span of the anomaly
+- Start/End Time: Precise timing of the fault
+
+Visualization Tab
+=================
+
+.. figure:: _static/visualization_tab.png
+   :alt: Visualization Tab
+   :align: center
+
+This tab offers three visualization types:
+
+- **Signal Visualization with Anomalies**:
+  - Selected signals with highlighted anomaly regions
+  - Annotations for each detected fault
+
+- **Reconstruction Error**:
+  - Plot of reconstruction error over time
+  - Threshold line and highlighted anomalies
+  - Histogram of reconstruction error distribution
+
+- **Feature Importance**:
+  - Bar chart of top features for fault classification
+  - Feature importance by signal type (pie chart)
+
+Export Options
+==============
+
+The dashboard provides several export options:
+
+- **Download Results as CSV**:
+  - Complete table of all detected anomalies
+
+- **Download Summary Report**:
+  - Markdown report with key findings
+  - Summary statistics
+  - Fault type distribution
+
+Using the Dashboard in Production
+=================================
+
+For production use, consider:
+
+- Setting up the dashboard on a dedicated server
+- Configuring authentication for restricted access
+- Setting up automated data ingestion
+- Scheduling regular analyses
+- Integrating with notification systems
+
+Advanced Features
+=================
+
+**Custom Thresholds**
+---------------------
+
+Fine-tune anomaly detection by adjusting the threshold percentile:
+
+- Higher values (e.g., 99th percentile): Fewer anomalies, higher confidence
+- Lower values (e.g., 90th percentile): More sensitive detection, potential false positives
+
+**Signal Selection**
+--------------------
+
+Select specific signals to focus your analysis:
+
+- Voltage signals (Va, Vb, Vc) for voltage-related issues
+- Current signals (Ia, Ib, Ic) for current-related faults
+- Combined analysis for comprehensive detection
+
+**Interactive Exploration**
+---------------------------
+
+The dashboard supports interactive exploration:
+
+- Zoom in/out of signal plots
+- Hover over data points for detailed information
+- Filter anomalies by fault type
+- Sort results by various criteria
+
+Troubleshooting
+===============
+
+**Common Issues**
+
+- **Dashboard Not Loading**:
+  - Check if Streamlit is installed correctly
+  - Verify port 8501 is available
+  - Check for Python environment issues
+
+- **File Upload Errors**:
+  - Ensure CSV format is correct
+  - Check file size (limit: 200MB)
+  - Verify column names match requirements
+
+- **Model Import Failures**:
+  - Verify model file formats (.h5, .joblib)
+  - Check if models were trained with compatible libraries
+  - Confirm models are not corrupted
+
+- **No Anomalies Detected**:
+  - Try lowering the threshold percentile
+  - Verify data contains actual anomalies
+  - Check if models are appropriate for your system
+
+Performance Tips
+================
+
+For large datasets:
+
+- Use data sampling for faster visualization
+- Run analysis on specific time segments
+- Consider preprocessing data before upload
+- Use hardware acceleration when available
+
+Next Steps
+==========
+
+- :doc:`usage` - See examples of practical applications
+- :doc:`api` - Explore programmatic access to PowerAI
+- :doc:`models` - Learn more about the underlying models
