@@ -114,10 +114,6 @@ The classifier is trained to recognize various power system faults, including:
 - Phase-to-phase faults
 - Double-phase to ground faults
 - Three-phase faults
-- High impedance faults
-- Voltage sags/swells
-- Transients and oscillations
-- Harmonics
 
 Training Process
 ----------------
@@ -258,5 +254,3 @@ Next Steps
 ==========
 
 - :doc:`dashboard` - Learn how to use the interactive dashboard with these models
-- :doc:`api` - Explore the programmatic API for model interaction
-- :doc:`usage` - See examples of using these models in practice
