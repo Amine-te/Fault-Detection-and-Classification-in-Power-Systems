@@ -1,43 +1,66 @@
-Power System Anomaly Detection Dashboard
-========================================
+===================================
+PowerAI: Power System Fault Detection
+===================================
 
-.. image:: https://img.shields.io/badge/License-MIT-blue.svg
+.. image:: https://img.shields.io/badge/license-MIT-blue.svg
    :target: https://opensource.org/licenses/MIT
    :alt: License: MIT
 
-A comprehensive dashboard for detecting and classifying anomalies in power system data.
+.. image:: https://img.shields.io/badge/python-3.8%20%7C%203.9%20%7C%203.10-blue
+   :alt: Python Versions
 
-.. image:: /api/placeholder/800/400
-   :alt: Dashboard Screenshot
+PowerAI is an advanced AI solution for detecting and classifying faults in electrical power systems using machine learning and deep learning techniques.
 
-Features
---------
+.. figure:: _static/dashboard_example.png
+   :alt: PowerAI Dashboard Example
+   :align: center
 
-- **Advanced Anomaly Detection**: Detect abnormal patterns in power system signals using LSTM-based autoencoder models
-- **Fault Classification**: Automatically classify detected anomalies into specific fault types
-- **Interactive Visualization**: Explore power system data and anomalies through interactive plots
-- **Real-time Analysis**: Process and analyze power system data in real-time
-- **Export Capabilities**: Export results and generate summary reports
+   PowerAI Dashboard for anomaly detection and fault classification
 
-The dashboard provides an intuitive interface for engineers and operators to:
+Key Features
+============
 
-- Upload and visualize power system data
-- Import pre-trained anomaly detection and classification models
-- Detect and classify anomalies in power system signals
-- Visualize results through various interactive plots
-- Export findings and generate comprehensive reports
+- Real-time anomaly detection in power system signals using autoencoder neural networks
+- Automatic fault classification of detected anomalies
+- Interactive dashboard for visualizing data and detected faults
+- Feature importance analysis to understand fault signatures
+- Comprehensive signal processing for voltage and current measurements
+
+Contents
+========
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: User Guide
 
    installation
    models
    dashboard
+   usage
 
-Indices and tables
-------------------
+.. toctree::
+   :maxdepth: 2
+   :caption: Technical Reference
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   api
+   contributing
+   changelog
+
+Get Started
+===========
+
+To get started with PowerAI, follow the :doc:`installation guide <installation>` and check out the :doc:`usage examples <usage>`.
+
+System Requirements
+===================
+
+- Python 3.8+
+- TensorFlow 2.6+
+- Scikit-learn 1.0+
+- 4GB+ RAM for model training
+- GPU recommended for large datasets and complex models
+
+License
+=======
+
+This project is licensed under the MIT License - see the LICENSE file for details.
