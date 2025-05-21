@@ -1,18 +1,17 @@
-===============================
 Power System Anomaly Dashboard
-===============================
+==============================
 
 Introduction
-============
+------------
 
-The **Power System Anomaly Dashboard** is an interactive web application built with **Streamlit** that provides comprehensive anomaly detection and classification for power system data. It allows engineers and analysts to identify, analyze, and categorize faults in electrical power systems through a user-friendly interface.
+The Power System Anomaly Dashboard is an interactive web application built with Streamlit that provides comprehensive anomaly detection and classification for power system data. It allows engineers and analysts to identify, analyze, and categorize faults in electrical power systems through a user-friendly interface.
 
-.. image:: /api/placeholder/800/400
+.. image:: https://via.placeholder.com/800x400.png
    :alt: Power System Anomaly Dashboard
    :align: center
 
 Features
-========
+--------
 
 - **Data Importing**: Upload and visualize power system data in CSV format
 - **Model Integration**: Import pre-trained anomaly detection and classification models
@@ -22,39 +21,39 @@ Features
 - **Reporting**: Export analysis results and generate summary reports
 
 System Requirements
-===================
+-------------------
 
 - Python 3.7+
 - Required packages:
   
-  - streamlit
-  - pandas
-  - numpy
-  - matplotlib
-  - seaborn
-  - joblib
-  - tensorflow
-  - scipy
-  - plotly
+  - `streamlit`
+  - `pandas`
+  - `numpy`
+  - `matplotlib`
+  - `seaborn`
+  - `joblib`
+  - `tensorflow`
+  - `scipy`
+  - `plotly`
 
 Installation
-============
+------------
 
-1. Clone the repository or download the dashboard script
+1. Clone the repository or download the dashboard script.
 2. Install the required packages:
 
-.. code-block:: bash
+::
 
    pip install streamlit pandas numpy matplotlib seaborn joblib tensorflow scipy plotly
 
 3. Launch the dashboard:
 
-.. code-block:: bash
+::
 
    streamlit run dashboard.py
 
 Input Data Format
-=================
+-----------------
 
 The dashboard requires CSV data with the following columns:
 
@@ -63,243 +62,147 @@ The dashboard requires CSV data with the following columns:
 - **Current signals**: Ia, Ib, Ic (three-phase current measurements)
 
 Required Models
-===============
+---------------
 
 The dashboard requires pre-trained models for operation:
 
 1. **Anomaly Detector**:
-   - LSTM Autoencoder model (.h5 file) for detecting anomalies
-   - StandardScaler (.joblib file) for preprocessing data
+
+   - LSTM Autoencoder model (`.h5` file)
+   - `StandardScaler` (`.joblib` file)
 
 2. **Fault Classifier**:
-   - Classification model (.joblib file) for categorizing fault types
-   - StandardScaler (.joblib file) for feature preprocessing
-   - Class names mapping (.joblib file) for fault type labels
+
+   - Classification model (`.joblib` file)
+   - `StandardScaler` (`.joblib` file)
+   - Class names mapping (`.joblib` file)
 
 User Guide
-==========
+----------
 
-Step 1: Data Import
--------------------
+### Step 1: Data Import
 
-1. Navigate to the **Data Import** tab
-2. Upload your power system CSV data using the file uploader
-3. Verify the data preview and visualize voltage and current signals
-4. Ensure your data has the required columns: **Time, Va, Vb, Vc, Ia, Ib, Ic**
+1. Navigate to the "Data Import" tab.
+2. Upload your power system CSV data.
+3. Preview and visualize the data.
+4. Ensure the following columns are present: Time, Va, Vb, Vc, Ia, Ib, Ic.
 
-Step 2: Model Import
---------------------
+### Step 2: Model Import
 
-1. Navigate to the **Model Import** tab
-2. Upload the required models:
-   - Detector model (.h5) and associated scaler
-   - Classifier model (.joblib), scaler, and class names mapping
-3. Configure analysis parameters:
-   - **Sequence Length**: Window size for anomaly detection (default: 50)
-   - **Anomaly Threshold Percentile**: Sensitivity of anomaly detection (default: 95%)
-   - **Max Merge Gap**: Maximum separation between anomalies to merge them (default: 1500 samples)
-4. Click **Run Analysis** to process the data
+1. Go to the "Model Import" tab.
+2. Upload:
+   - Autoencoder model (`.h5`) and scaler.
+   - Classifier model (`.joblib`), scaler, and class names.
+3. Configure:
+   - Sequence Length (default: 50)
+   - Anomaly Threshold Percentile (default: 95%)
+   - Max Merge Gap (default: 1500 samples)
+4. Click **Run Analysis**.
 
-Step 3: Analysis & Results
---------------------------
+### Step 3: Analysis & Results
 
-1. View the analysis results in the **Analysis & Results** tab
-2. Examine metrics like total anomalies, unique fault types, and average anomaly duration
-3. Review the table of detected anomalies with their timestamps, durations, and classifications
-4. Explore visualizations showing fault type distribution and anomaly timeline
+- View metrics: total anomalies, fault types, average anomaly duration.
+- Review detected anomaly intervals.
+- Explore visual analytics (distribution, timeline, etc.).
 
-Step 4: Visualization
----------------------
+### Step 4: Visualization
 
-1. Navigate to the **Visualization** tab
-2. Choose visualization types:
-   - **Signal Visualization with Anomalies**: View original signals with highlighted anomaly regions
-   - **Reconstruction Error**: Analyze autoencoder reconstruction errors and detection threshold
-   - **Feature Importance**: Explore which features are most significant for classification
-3. Interact with the visualizations to gain insights about the detected anomalies
+Choose from:
+
+- **Signal Visualization with Anomalies**
+- **Reconstruction Error**
+- **Feature Importance**
 
 Export Options
 --------------
 
-- **Download Results as CSV**: Export the full table of detected anomalies
-- **Download Summary Report**: Generate a markdown report with key statistics and findings
+- **Download Results as CSV**
+- **Download Summary Report** (Markdown format)
 
 Technical Details
-=================
+-----------------
 
-Anomaly Detection Approach
---------------------------
+### Anomaly Detection Approach
 
-The dashboard employs a multi-stage approach for detecting and classifying power system anomalies:
+1. **Preprocessing**:
+   - Normalize (StandardScaler)
+   - Create overlapping sequences
 
-1. **Signal Preprocessing**:
-   - The input signals (**Va, Vb, Vc, Ia, Ib, Ic**) are normalized using a StandardScaler
-   - Time-series data is segmented into overlapping sequences for the autoencoder
+2. **Autoencoder**:
+   - LSTM autoencoder detects reconstruction error
+   - Threshold using percentile
 
-2. **Autoencoder-Based Detection**:
-   - An LSTM autoencoder model reconstructs normal signal patterns
-   - Higher reconstruction errors indicate potential anomalies
-   - A percentile-based threshold determines anomaly classification
-
-3. **Interval Merging**:
-   - Consecutive or nearby anomaly windows are merged into larger events
-   - The ``merge_intervals`` function handles this with a configurable maximum gap parameter
+3. **Merging**:
+   - Merge intervals using `merge_intervals`
 
 4. **Feature Extraction**:
-   - For each detected anomaly interval, features are extracted from the raw signals
-   - Features include statistical measures (mean, std, skew, kurtosis) and signal characteristics (RMS, peak-to-peak, crest factor)
-   - Cross-signal correlations are calculated to capture phase relationships
+   - Mean, std, skew, kurtosis, RMS, crest factor, correlations
 
-5. **Fault Classification**:
-   - The extracted features are normalized and fed to the classification model
-   - The model predicts the specific fault type for each anomaly interval
-   - Confidence scores are provided when available (for probabilistic classifiers)
+5. **Classification**:
+   - Normalize features
+   - Classify using trained model
+   - Confidence score (if applicable)
 
 Functions Reference
-===================
+-------------------
 
-``extract_features(data, interval)``
-------------------------------------
+**extract_features(data, interval)**
 
-Extracts features from raw signal data for a given time interval.
+- Extracts statistical and signal-based features.
+- Returns a feature dictionary.
 
-**Parameters:**
+**preprocess_data(data, scaler, sequence_length)**
 
-- **data**: DataFrame containing the power system signals
-- **interval**: Tuple (start_time, end_time) defining the interval
+- Normalizes and sequences data for autoencoder input.
+- Returns a numpy array: `(n_sequences, sequence_length, n_features)`
 
-**Returns:**
+**merge_intervals(intervals, max_gap_samples, sample_time)**
 
-- Dictionary of features including statistical measures and signal characteristics
+- Merges nearby intervals.
+- Returns a list of merged `(start_time, end_time)` tuples.
 
-``preprocess_data(data, scaler, sequence_length)``
---------------------------------------------------
+**detect_anomalies(data, detector_model, detector_scaler, sequence_length, percentile)**
 
-Prepares data for the autoencoder by normalizing and creating overlapping sequences.
+- Returns anomaly flags, reconstruction error, window timestamps, intervals, and threshold.
 
-**Parameters:**
+**predict_anomaly_intervals(data, interval_list, classifier_model, classifier_scaler, class_names)**
 
-- **data**: DataFrame containing the power system signals
-- **scaler**: Trained StandardScaler for normalizing the data
-- **sequence_length**: Number of samples in each sequence
-
-**Returns:**
-
-- Numpy array of shape (n_sequences, sequence_length, n_features)
-
-``merge_intervals(intervals, max_gap_samples, sample_time)``
-------------------------------------------------------------
-
-Merges anomaly intervals that are close to each other in time.
-
-**Parameters:**
-
-- **intervals**: List of (start_time, end_time) tuples
-- **max_gap_samples**: Maximum number of samples between intervals to merge
-- **sample_time**: Time difference between consecutive samples
-
-**Returns:**
-
-- List of merged (start_time, end_time) intervals
-
-``detect_anomalies(data, detector_model, detector_scaler, sequence_length, percentile)``
------------------------------------------------------------------------------------------
-
-Detects anomalies in the power system data using an autoencoder.
-
-**Parameters:**
-
-- **data**: DataFrame containing the power system signals
-- **detector_model**: Trained autoencoder model
-- **detector_scaler**: Trained StandardScaler for preprocessing
-- **sequence_length**: Number of samples in each sequence
-- **percentile**: Percentile threshold for anomaly detection
-
-**Returns:**
-
-- Boolean array of anomaly flags
-- Array of reconstruction error scores
-- Array of timestamps corresponding to each window
-- List of original anomaly intervals
-- Threshold value
-
-``predict_anomaly_intervals(data, interval_list, classifier_model, classifier_scaler, class_names)``
-----------------------------------------------------------------------------------------------------
-
-Classifies detected anomaly intervals into specific fault types.
-
-**Parameters:**
-
-- **data**: DataFrame containing the power system signals
-- **interval_list**: List of (start_time, end_time) intervals
-- **classifier_model**: Trained classifier model
-- **classifier_scaler**: Trained StandardScaler for feature preprocessing
-- **class_names**: Mapping from numeric indices to fault type names
-
-**Returns:**
-
-- DataFrame with columns: start_time, end_time, predicted_fault, confidence
+- Classifies intervals into fault types.
+- Returns a DataFrame with predictions and confidence.
 
 Customization
-=============
-
-The dashboard includes several customizable parameters:
-
-- **Sequence Length**: Adjusts the window size for anomaly detection (impacts sensitivity to short anomalies)
-- **Anomaly Threshold Percentile**: Controls the sensitivity of the anomaly detector (higher = fewer anomalies)
-- **Max Merge Gap**: Determines how close anomalies must be to be considered part of the same event
-
-Advanced users can modify the dashboard code to:
-
-- Add new feature extraction methods in the ``extract_features`` function
-- Implement additional visualization options
-- Customize the appearance and layout using Streamlit’s UI components
-
-Troubleshooting
-===============
-
-Common Issues
 -------------
 
-1. **Data format errors**:
-   - Ensure your CSV file contains all required columns: Time, Va, Vb, Vc, Ia, Ib, Ic
-   - Check for missing values or inconsistent formatting
+You can:
 
-2. **Model loading failures**:
-   - Verify that model files are compatible with the dashboard
-   - Ensure all necessary files are uploaded (model, scaler, class names)
+- Change sequence length and thresholds
+- Modify `extract_features` for new features
+- Enhance visualizations via Streamlit
+- Adjust UI components
 
-3. **Memory errors**:
-   - For large datasets, consider downsampling or analyzing smaller segments
-   - Increase system memory allocation for Streamlit
+Troubleshooting
+---------------
 
-4. **No anomalies detected**:
-   - Try adjusting the anomaly threshold percentile to a lower value
-   - Verify that the data contains actual anomalies or faults
+**Common Issues**:
+
+- **Missing Columns**: Ensure data has required columns.
+- **Model Load Failures**: Check model and scaler file compatibility.
+- **Memory Errors**: Use smaller files or downsample data.
+- **No Anomalies Detected**: Lower the threshold.
 
 Performance Optimization
 ------------------------
 
-- For large datasets, the dashboard automatically downsamples data for visualization
-- To improve performance further, consider:
-  - Using a more powerful machine for running the dashboard
-  - Pre-filtering data to focus on time periods of interest
-  - Optimizing the sequence length parameter for your specific use case
+- Automatic downsampling for large files
+- Tips:
+  - Analyze smaller periods
+  - Tune sequence length
+  - Use higher-spec machines
 
 References
-==========
+----------
 
-- **Streamlit**: https://streamlit.io/
-- **TensorFlow**: https://www.tensorflow.org/
-- **Plotly**: https://plotly.com/
-- **Joblib**: https://joblib.readthedocs.io/
-
-License
-=======
-
-[Specify license information here]
-
-Contact
-=======
-
-[Provide contact information for support or contributions]
+- `Streamlit <https://streamlit.io/>`_
+- `TensorFlow <https://www.tensorflow.org/>`_
+- `Plotly <https://plotly.com/>`_
+- `Joblib <https://joblib.readthedocs.io/>`_
