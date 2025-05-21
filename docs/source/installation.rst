@@ -190,7 +190,6 @@ Getting Help
 For additional support:
 - Consult the project's ``FAQ.md``
 - Open an issue on our GitHub repository
-- Contact the project maintainers at maintainer@powergridai.com
 
 Next Steps
 ----------
