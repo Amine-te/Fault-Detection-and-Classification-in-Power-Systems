@@ -1,2 +1,13 @@
 sphinx
 sphinx-rtd-theme
+numpy
+pandas
+matplotlib
+seaborn
+scikit-learn
+scipy
+statsmodels
+pmdarima
+tensorflow
+keras
+joblib
