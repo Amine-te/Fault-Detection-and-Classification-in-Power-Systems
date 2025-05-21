@@ -1,6 +1,5 @@
-==========
-Dashboard
-==========
+PowerAI Dashboard
+=================
 
 PowerAI includes an interactive Streamlit-based dashboard for visualizing power system data, detecting anomalies, and classifying faults. This document provides a comprehensive guide to using the dashboard effectively.
 
@@ -14,31 +13,33 @@ Getting Started
 ===============
 
 Launching the Dashboard
-------------------------
+-----------------------
 
-To launch the PowerAI dashboard:
-
-**Using the CLI:**
+To launch the PowerAI dashboard, run the following command in your terminal:
 
 .. code-block:: bash
 
-   powerai dashboard
+   python app.py
 
-**Or with Python:**
+Alternatively, you can use:
 
 .. code-block:: bash
 
-   python -m powerai.dashboard
+   streamlit run app.py
 
 The dashboard will start and be accessible at http://localhost:8501 in your web browser.
 
 **Command-line Options:**
 
+You can customize the dashboard launch by passing arguments when running the script, for example:
+
 .. code-block:: bash
 
-   powerai dashboard --port 8502       # Use a different port
-   powerai dashboard --theme dark      # Use dark theme
-   powerai dashboard --wide            # Use wide mode layout
+   python app.py -- --port 8502       # Use a different port
+   python app.py -- --theme dark      # Use dark theme
+   python app.py -- --wide            # Use wide mode layout
+
+(If your app supports CLI arguments, otherwise set these options inside the app.py as needed.)
 
 Dashboard Interface
 ===================
@@ -68,8 +69,8 @@ This tab allows you to:
 - **View Data Preview**: Sample of the uploaded data
 - **Visualize Signals**: Interactive plots of voltage and current signals
 
-**Data Format Requirements**
-----------------------------
+Data Format Requirements
+------------------------
 
 Your CSV file should follow this format:
 
@@ -113,8 +114,8 @@ In this tab, you can:
 
 - **Run Analysis**: Process data with the loaded models
 
-**File Types Overview**
------------------------
+File Types Overview
+-------------------
 
 .. list-table::
    :header-rows: 1
@@ -165,8 +166,8 @@ After running the analysis, this tab shows:
 - **Anomaly Timeline**:
   - Timeline visualization of all detected anomalies
 
-**Understanding Classification Results**
-----------------------------------------
+Understanding Classification Results
+------------------------------------
 
 The fault classification results include:
 
@@ -224,16 +225,16 @@ For production use, consider:
 Advanced Features
 =================
 
-**Custom Thresholds**
----------------------
+Custom Thresholds
+-----------------
 
 Fine-tune anomaly detection by adjusting the threshold percentile:
 
 - Higher values (e.g., 99th percentile): Fewer anomalies, higher confidence
 - Lower values (e.g., 90th percentile): More sensitive detection, potential false positives
 
-**Signal Selection**
---------------------
+Signal Selection
+----------------
 
 Select specific signals to focus your analysis:
 
@@ -241,8 +242,8 @@ Select specific signals to focus your analysis:
 - Current signals (Ia, Ib, Ic) for current-related faults
 - Combined analysis for comprehensive detection
 
-**Interactive Exploration**
----------------------------
+Interactive Exploration
+-----------------------
 
 The dashboard supports interactive exploration:
 
@@ -254,7 +255,8 @@ The dashboard supports interactive exploration:
 Troubleshooting
 ===============
 
-**Common Issues**
+Common Issues
+-------------
 
 - **Dashboard Not Loading**:
   - Check if Streamlit is installed correctly
