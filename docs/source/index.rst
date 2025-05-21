@@ -8,6 +8,5 @@ Welcome to Power System Anomaly Detection
    :caption: Contents:
 
    installation
-   data_processing
    models
    dashboard
