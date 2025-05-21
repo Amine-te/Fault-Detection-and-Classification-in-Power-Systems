@@ -117,16 +117,21 @@ After installation, your project directory should contain:
 
 ::
 
-   PowerGridAnomalyDetection/
-   ├── data/               # Sample datasets
-   ├── models/             # Pretrained models
-   │   ├── lstm_model.h5
-   │   └── classifier.joblib
-   ├── notebooks/          # Jupyter notebooks
-   ├── src/                # Source code
-   ├── dashboard.py        # Streamlit application
-   ├── requirements.txt    # Dependency list
-   └── README.md
+PowerGridAnomalyDetection/
+├── data/                          # Sample datasets
+├── models/                        # Pretrained models
+│   ├── detector/                  # Anomaly detector model
+│   │   ├── detector_model.h5
+│   │   └── detector_scaler.joblib
+│   └── classifier/                # Fault type classifier
+│       ├── classifier_model.joblib
+│       ├── classifier_scaler.joblib
+│       └── class_names.joblib
+├── notebooks/                     # Jupyter notebooks for exploration and experimentation
+├── dashboard.py                   # Streamlit application for visualization and interaction
+├── requirements.txt               # List of dependencies
+└── README.md                      # Project overview and usage instructions
+
 
 Running the System
 ------------------
