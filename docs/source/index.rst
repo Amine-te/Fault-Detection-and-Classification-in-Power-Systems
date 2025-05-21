@@ -11,12 +11,6 @@ PowerAI: Power System Fault Detection
 
 PowerAI is an advanced AI solution for detecting and classifying faults in electrical power systems using machine learning and deep learning techniques.
 
-.. figure:: _static/dashboard_example.png
-   :alt: PowerAI Dashboard Example
-   :align: center
-
-   PowerAI Dashboard for anomaly detection and fault classification
-
 Key Features
 ============
 
