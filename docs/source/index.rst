@@ -31,15 +31,6 @@ Contents
    installation
    models
    dashboard
-   usage
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Technical Reference
-
-   api
-   contributing
-   changelog
 
 Get Started
 ===========

@@ -10,10 +10,10 @@ PowerAI includes an interactive Streamlit-based dashboard for visualizing power 
    PowerAI's interactive dashboard for power system fault detection and analysis
 
 Getting Started
-===============
+---------------
 
 Launching the Dashboard
------------------------
+~~~~~~~~~~~~~~~~~~~~~~~
 
 To launch the PowerAI dashboard, run the following command in your terminal:
 
@@ -42,7 +42,7 @@ You can customize the dashboard launch by passing arguments when running the scr
 (If your app supports CLI arguments, otherwise set these options inside the app.py as needed.)
 
 Dashboard Interface
-===================
+-------------------
 
 The dashboard is divided into four main tabs:
 
@@ -52,7 +52,7 @@ The dashboard is divided into four main tabs:
 - **Visualization**: Detailed visualizations of signals and anomalies
 
 Data Import Tab
-===============
+~~~~~~~~~~~~~~~
 
 .. figure:: _static/data_import_tab.png
    :alt: Data Import Tab
@@ -70,7 +70,7 @@ This tab allows you to:
 - **Visualize Signals**: Interactive plots of voltage and current signals
 
 Data Format Requirements
-------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 Your CSV file should follow this format:
 
@@ -90,7 +90,7 @@ Notes:
 - No missing values in critical columns
 
 Model Import Tab
-================
+~~~~~~~~~~~~~~~~
 
 .. figure:: _static/model_import_tab.png
    :alt: Model Import Tab
@@ -115,7 +115,7 @@ In this tab, you can:
 - **Run Analysis**: Process data with the loaded models
 
 File Types Overview
--------------------
+^^^^^^^^^^^^^^^^^^^
 
 .. list-table::
    :header-rows: 1
@@ -141,7 +141,7 @@ File Types Overview
      - Dictionary mapping class indices to fault names
 
 Analysis & Results Tab
-======================
+~~~~~~~~~~~~~~~~~~~~~~
 
 .. figure:: _static/analysis_tab.png
    :alt: Analysis Tab
@@ -167,7 +167,7 @@ After running the analysis, this tab shows:
   - Timeline visualization of all detected anomalies
 
 Understanding Classification Results
-------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The fault classification results include:
 
@@ -177,7 +177,7 @@ The fault classification results include:
 - Start/End Time: Precise timing of the fault
 
 Visualization Tab
-=================
+~~~~~~~~~~~~~~~~~
 
 .. figure:: _static/visualization_tab.png
    :alt: Visualization Tab
@@ -199,7 +199,7 @@ This tab offers three visualization types:
   - Feature importance by signal type (pie chart)
 
 Export Options
-==============
+--------------
 
 The dashboard provides several export options:
 
@@ -212,7 +212,7 @@ The dashboard provides several export options:
   - Fault type distribution
 
 Using the Dashboard in Production
-=================================
+---------------------------------
 
 For production use, consider:
 
@@ -223,10 +223,10 @@ For production use, consider:
 - Integrating with notification systems
 
 Advanced Features
-=================
+-----------------
 
 Custom Thresholds
------------------
+~~~~~~~~~~~~~~~~~
 
 Fine-tune anomaly detection by adjusting the threshold percentile:
 
@@ -234,7 +234,7 @@ Fine-tune anomaly detection by adjusting the threshold percentile:
 - Lower values (e.g., 90th percentile): More sensitive detection, potential false positives
 
 Signal Selection
-----------------
+~~~~~~~~~~~~~~~~
 
 Select specific signals to focus your analysis:
 
@@ -243,7 +243,7 @@ Select specific signals to focus your analysis:
 - Combined analysis for comprehensive detection
 
 Interactive Exploration
------------------------
+~~~~~~~~~~~~~~~~~~~~~~~
 
 The dashboard supports interactive exploration:
 
@@ -253,10 +253,10 @@ The dashboard supports interactive exploration:
 - Sort results by various criteria
 
 Troubleshooting
-===============
+---------------
 
 Common Issues
--------------
+~~~~~~~~~~~~~
 
 - **Dashboard Not Loading**:
   - Check if Streamlit is installed correctly
@@ -279,7 +279,7 @@ Common Issues
   - Check if models are appropriate for your system
 
 Performance Tips
-================
+----------------
 
 For large datasets:
 
@@ -289,7 +289,7 @@ For large datasets:
 - Use hardware acceleration when available
 
 Next Steps
-==========
+----------
 
 - :doc:`usage` - See examples of practical applications
 - :doc:`api` - Explore programmatic access to PowerAI
