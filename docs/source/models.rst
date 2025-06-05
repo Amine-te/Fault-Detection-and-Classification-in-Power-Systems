@@ -228,13 +228,13 @@ The PowerAI models are stored in the following format:
    │   ├── classifier_scaler.joblib  # Feature scaler
    │   └── class_names.joblib        # Mapping of numerical labels to fault types
    │
-   └── classification_transformer/
-       ├── best_fault_classifier.h5       # Trained transformer model
-       ├── complete_dl_faults_system.joblib # Complete system configuration
-       ├── feature_scaler.joblib           # Feature preprocessing scaler
-       ├── label_encoder.joblib            # Label encoding for fault types
-       ├── model_metadata.joblib           # Model architecture and training metadata
-       └── sequence_scaler.joblib          # Sequence data normalization scaler
+   ├── classification_transformer/
+   │    ├── best_fault_classifier.h5       # Trained transformer model
+   │    ├── complete_dl_faults_system.joblib # Complete system configuration
+   │    ├── feature_scaler.joblib           # Feature preprocessing scaler
+   │    ├── label_encoder.joblib            # Label encoding for fault types
+   │    ├── model_metadata.joblib           # Model architecture and training metadata
+   │    └── sequence_scaler.joblib          # Sequence data normalization scaler
 
 Custom Models
 =============
