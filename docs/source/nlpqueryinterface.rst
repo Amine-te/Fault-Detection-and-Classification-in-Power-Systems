@@ -1,6 +1,3 @@
-# NLP Query Interface Documentation
-
-```rst
 =======================================
 Natural Language Processing Query Interface
 =======================================
@@ -601,8 +598,7 @@ Troubleshooting
 * Checks for analysis completion
 * Clear messages when data unavailable
 
-Troubleshooting
-===============
+
 
 Common Issues
 -------------
@@ -623,89 +619,3 @@ Common Issues
 * **Cause**: Filters too restrictive or no matching data
 * **Solution**: Verify fault types exist in data, broaden criteria
 
-Performance Issues
-------------------
-
-**Slow response times**:
-* **Cause**: Complex regex processing on very long queries
-* **Solution**: Keep queries concise and focused
-
-**Memory usage**:
-* **Cause**: Large query history accumulation
-* **Solution**: Restart session periodically
-
-FAQ
-===
-
-**Q: What fault types are supported?**
-A: LG, LLG, LL, LLL, and LLLG faults with various naming conventions.
-
-**Q: Can I use abbreviations?**
-A: Yes, both abbreviations (LG, LLG) and full names (line-to-ground) work.
-
-**Q: How accurate is the intent recognition?**
-A: The system provides confidence scores; typical accuracy is 70-95% for well-formed queries.
-
-**Q: Can I filter by multiple criteria?**
-A: Yes, you can specify fault type and phase in the same query.
-
-**Q: What if my query isn't understood?**
-A: The system provides suggestions and help. Use the 'help' command for guidance.
-
-**Q: How do I see query history?**
-A: Query history is available in the expandable "Recent Queries" section.
-
-**Q: Can I customize the responses?**
-A: Yes, the system is designed for extensibility. See the Customization section.
-
-**Q: What data format is required?**
-A: The system expects pandas DataFrames with specific columns. See Integration Guide.
-
-Version History
-===============
-
-**Version 1.0**:
-* Initial release with basic intent recognition
-* Support for 5 fault types
-* Basic entity extraction
-* Streamlit integration
-
-**Current Features**:
-* Enhanced confidence scoring
-* Query suggestions
-* Comprehensive knowledge base
-* Advanced filtering capabilities
-* Session state management
-* Error handling and troubleshooting
-
-Future Enhancements
-===================
-
-**Planned Features**:
-* Machine learning-based intent recognition
-* Multi-language support
-* Voice input capability
-* Advanced analytics queries
-* Custom fault type definitions
-* Integration with external databases
-
-**Roadmap**:
-* Q2 2025: Enhanced ML models
-* Q3 2025: Voice interface
-* Q4 2025: Multi-language support
-
-Contact and Support
-===================
-
-For technical support, feature requests, or bug reports, please refer to the project documentation or contact the development team.
-
-**Documentation**: This comprehensive guide covers all aspects of the NLP Query Interface.
-
-**Examples**: Refer to the Example Queries section for usage patterns.
-
-**Customization**: See the Customization section for extending functionality.
-
----
-
-*Natural Language Processing for Power System Analysis - Making complex data accessible through conversational interfaces*
-```
