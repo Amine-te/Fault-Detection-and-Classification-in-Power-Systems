@@ -19,55 +19,72 @@ To launch the PowerAI dashboard, run the following command in your terminal:
 
 .. code-block:: bash
 
-   python app.py
+   python app3.py
 
 Alternatively, you can use:
 
 .. code-block:: bash
 
-   streamlit run app.py
+   streamlit run app3.py
 
 The dashboard will start and be accessible at http://localhost:8501 in your web browser.
 
+.. note::
+   The main dashboard application is contained in `app3.py`, which represents the latest version of the PowerAI interface with enhanced features and improved user experience.
+
 **Command-line Options:**
 
-You can customize the dashboard launch by passing arguments when running the script, for example:
+You can customize the dashboard launch by passing Streamlit arguments:
 
 .. code-block:: bash
 
-   python app.py -- --port 8502       # Use a different port
-   python app.py -- --theme dark      # Use dark theme
-   python app.py -- --wide            # Use wide mode layout
+   streamlit run app3.py --port 8502       # Use a different port
+   streamlit run app3.py --theme.base dark # Use dark theme
+   streamlit run app3.py --server.headless true # Run in headless mode
 
-(If your app supports CLI arguments, otherwise set these options inside the app.py as needed.)
+Dashboard Architecture
+----------------------
+
+The `app3.py` application is built with a modular architecture:
+
+- **Core Dashboard**: Main interface for data upload, analysis, and visualization
+- **Model Integration**: Seamless integration with LSTM autoencoders and transformer-based classifiers
+- **Advanced Visualization**: Interactive plots using Plotly for enhanced user experience
+- **Export Capabilities**: Comprehensive reporting in CSV and PDF formats
+- **Smart Query Interface**: Natural language processing capabilities (covered in the next section)
+
+The dashboard imports the NLP query interface from `nlp_query_interface.py`, which provides intelligent data querying capabilities that will be detailed in the following section.
 
 Dashboard Interface
 -------------------
 
-The dashboard is divided into four main tabs:
+The dashboard is organized into four main tabs:
 
-- **Data Import**: Upload and preview power system data
-- **Model Import**: Import anomaly detection and fault classification models
-- **Analysis & Results**: View detected anomalies and fault classifications
-- **Visualization**: Detailed visualizations of signals and anomalies
+1. **📊 Data Upload & Visualization**: Upload and preview power system data
+2. **⚙️ Analysis Configuration**: Configure detection parameters and run analysis
+3. **📈 Results & Export**: View results and export reports
+4. **🤖 Smart Query**: Natural language interface for data exploration
 
-Data Import Tab
-~~~~~~~~~~~~~~~
+Data Upload & Visualization Tab
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: _static/data_import_tab.png
-   :alt: Data Import Tab
+.. figure:: _static/data_upload_tab.png
+   :alt: Data Upload & Visualization Tab
    :align: center
 
-This tab allows you to:
+This tab provides comprehensive data management capabilities:
 
-- **Upload CSV Data**: The file should contain:
+**Data Upload Features:**
+- **CSV File Upload**: Drag-and-drop or browse for CSV files
+- **Real-time Validation**: Automatic validation of required columns
+- **Data Preview**: Interactive preview of uploaded data with statistics
+- **Quality Metrics**: Display of data quality indicators
 
-  - Time column (timestamps)
-  - Voltage signals (Va, Vb, Vc)
-  - Current signals (Ia, Ib, Ic)
-
-- **View Data Preview**: Sample of the uploaded data
-- **Visualize Signals**: Interactive plots of voltage and current signals
+**Visualization Features:**
+- **Signal Plots**: Interactive voltage and current signal visualization
+- **Multi-signal Selection**: Choose specific signals to display
+- **Responsive Design**: Plots adapt to different screen sizes
+- **Export Options**: Save visualizations as images
 
 Data Format Requirements
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -81,216 +98,285 @@ Your CSV file should follow this format:
    0.001,220.2,220.1,219.9,5.2,5.1,5.1
    ...
 
-Notes:
+**Column Specifications:**
+- `Time`: Timestamp in seconds (numeric)
+- `Va`, `Vb`, `Vc`: Three-phase voltage signals (numeric)
+- `Ia`, `Ib`, `Ic`: Three-phase current signals (numeric)
 
-- Time column should be in seconds
-- Voltage columns (Va, Vb, Vc) typically in volts
-- Current columns (Ia, Ib, Ic) typically in amperes
-- Regular sampling rate is recommended
+**Data Quality Requirements:**
+- Regular sampling rate recommended
 - No missing values in critical columns
+- Minimum 1000 samples for reliable analysis
+- Consistent units across measurements
 
-Model Import Tab
-~~~~~~~~~~~~~~~~
+Analysis Configuration Tab
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: _static/model_import_tab.png
-   :alt: Model Import Tab
+.. figure:: _static/analysis_config_tab.png
+   :alt: Analysis Configuration Tab
    :align: center
 
-In this tab, you can:
+This tab provides sophisticated analysis configuration:
 
-- **Import Anomaly Detector:**
-  - Upload detector model (.h5 file)
-  - Upload detector scaler (joblib file)
+**Detection Parameters:**
+- **Sequence Length**: Window size for LSTM autoencoder (20-200 samples)
+- **Threshold Percentile**: Sensitivity control for anomaly detection (90-99%)
+- **Advanced Thresholds**: Dynamic threshold adjustment based on data characteristics
 
-- **Import Fault Classifier:**
-  - Upload classifier model (joblib file)
-  - Upload classifier scaler (joblib file)
-  - Upload class names mapping (joblib file)
+**Post-processing Parameters:**
+- **Maximum Gap for Merging**: Controls interval merging (100-3000 samples)
+- **Classification Sequence Length**: Window size for fault classification (64-256 samples)
+- **Filtering Options**: Additional noise reduction and signal conditioning
 
-- **Set Analysis Parameters:**
-  - Sequence Length: Window size for anomaly detection
-  - Anomaly Threshold Percentile: Sensitivity of anomaly detection
-  - Max Merge Gap: Maximum gap between anomalies to merge them
+**Model Integration:**
+The tab automatically loads pre-trained models:
+- LSTM Autoencoder for anomaly detection (`detector/` directory)
+- Transformer-based classifier for fault classification (`classifier_transformer/` directory)
 
-- **Run Analysis**: Process data with the loaded models
+Analysis Workflow
+^^^^^^^^^^^^^^^^^
 
-File Types Overview
+1. **Data Preprocessing**: Automatic scaling and sequence generation
+2. **Anomaly Detection**: LSTM autoencoder reconstruction error analysis
+3. **Threshold Calculation**: Dynamic threshold based on percentile selection
+4. **Interval Merging**: Consolidation of nearby anomalies into fault intervals
+5. **Fault Classification**: Multi-class classification of detected intervals
+6. **Results Compilation**: Comprehensive results with confidence metrics
+
+Results & Export Tab
+~~~~~~~~~~~~~~~~~~~~
+
+.. figure:: _static/results_tab.png
+   :alt: Results & Export Tab
+   :align: center
+
+This tab presents comprehensive analysis results:
+
+**Summary Metrics:**
+- **Detection Statistics**: Total anomalies, detection rate, fault intervals
+- **Classification Results**: Successful classifications and confidence levels
+- **Performance Metrics**: Analysis duration and processing statistics
+
+**Interactive Visualizations:**
+- **Reconstruction Error Plot**: Time series of reconstruction errors with threshold
+- **Signal Overlays**: Original signals with highlighted fault regions
+- **Classification Confidence**: Distribution of classification confidence scores
+- **Fault Type Distribution**: Pie charts and histograms of detected fault types
+
+**Detailed Results Table:**
+- **Fault Intervals**: Start/end times, duration, and classification results
+- **Confidence Scores**: Classification confidence with progress bars
+- **Sortable Columns**: Interactive sorting and filtering capabilities
+
+Export Capabilities
 ^^^^^^^^^^^^^^^^^^^
 
-.. list-table::
-   :header-rows: 1
-   :widths: 25 25 50
+**CSV Export:**
+- Comprehensive data export with summary statistics
+- Fault interval details with timestamps and classifications
+- Analysis parameters and model configuration
 
-   * - Component
-     - File Type
-     - Description
-   * - Detector Model
-     - .h5
-     - TensorFlow LSTM autoencoder model
-   * - Detector Scaler
-     - .joblib
-     - StandardScaler for preprocessing input data
-   * - Classifier Model
-     - .joblib
-     - Trained machine learning classifier
-   * - Classifier Scaler
-     - .joblib
-     - Scaler for feature preprocessing
-   * - Class Names
-     - .joblib
-     - Dictionary mapping class indices to fault names
+**PDF Reports:**
+- Professional reports with charts and tables
+- Summary statistics and detailed findings
+- Configurable report templates with company branding
 
-Analysis & Results Tab
-~~~~~~~~~~~~~~~~~~~~~~
+Smart Query Tab
+~~~~~~~~~~~~~~~
 
-.. figure:: _static/analysis_tab.png
-   :alt: Analysis Tab
-   :align: center
+The Smart Query tab provides an intelligent interface for data exploration using natural language processing capabilities. This advanced feature allows users to interact with their power system data using conversational queries.
 
-After running the analysis, this tab shows:
+.. note::
+   Detailed documentation for the Smart Query interface, including its natural language processing capabilities and query examples, is provided in the next section of this documentation.
 
-- **Summary Metrics**:
-  - Total number of detected anomalies
-  - Number of unique fault types
-  - Average anomaly duration
+Key Features of app3.py
+------------------------
 
-- **Detected Anomalies Table**:
-  - Start and end times of each anomaly
-  - Predicted fault type
-  - Confidence level for each prediction
-  - Duration of each anomaly
+Enhanced User Experience
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-- **Fault Type Distribution**:
-  - Bar chart showing the distribution of detected fault types
+The `app3.py` implementation includes several UX improvements:
 
-- **Anomaly Timeline**:
-  - Timeline visualization of all detected anomalies
+- **Modern Styling**: Custom CSS with gradient backgrounds and modern design elements
+- **Responsive Layout**: Adaptive interface that works on different screen sizes
+- **Interactive Elements**: Hover effects, progress indicators, and real-time feedback
+- **Error Handling**: Comprehensive error messages and recovery suggestions
 
-Understanding Classification Results
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Performance Optimizations
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The fault classification results include:
+- **Caching**: Strategic use of Streamlit's caching for model loading and data processing
+- **Memory Management**: Efficient handling of large datasets
+- **Progressive Loading**: Staged loading of components for faster initial response
+- **Session Management**: Persistent session state across tab navigation
 
-- Predicted Fault: The type of fault detected
-- Confidence: Probability estimate for the prediction
-- Duration: Time span of the anomaly
-- Start/End Time: Precise timing of the fault
+Model Integration Architecture
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Visualization Tab
+The application seamlessly integrates multiple AI models:
+
+**LSTM Autoencoder Integration:**
+- Automatic model loading with error handling
+- Preprocessing pipeline with saved scalers
+- Configurable sequence generation
+- Real-time reconstruction error calculation
+
+**Transformer Classifier Integration:**
+- Multi-input model support (time series + statistical features)
+- Statistical feature extraction pipeline
+- Confidence score calculation and visualization
+- Class label mapping and interpretation
+
+Advanced Visualization Features
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Interactive Plotly Charts:**
+- Zoomable and pannable time series plots
+- Multi-subplot layouts for signal comparison
+- Customizable color schemes and styling
+- Export capabilities for presentations
+
+**Real-time Updates:**
+- Dynamic plot updates based on user selections
+- Responsive threshold visualization
+- Interactive anomaly highlighting
+- Progressive result rendering
+
+Production Deployment
+--------------------
+
+Deploying app3.py in Production
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+For production deployment, consider:
+
+**Server Configuration:**
+- Use production-grade WSGI servers (Gunicorn, uWSGI)
+- Configure reverse proxy (Nginx, Apache)
+- Set up SSL/TLS certificates for secure access
+- Implement load balancing for high availability
+
+**Security Considerations:**
+- User authentication and authorization
+- Data encryption at rest and in transit
+- Input validation and sanitization
+- Audit logging for compliance
+
+**Scalability Options:**
+- Containerization with Docker
+- Kubernetes orchestration for cloud deployment
+- Auto-scaling based on usage patterns
+- Database integration for persistent storage
+
+**Monitoring and Maintenance:**
+- Application performance monitoring
+- Error tracking and alerting
+- Regular model updates and retraining
+- Backup and disaster recovery procedures
+
+Customization Guide
+-------------------
+
+Extending app3.py
 ~~~~~~~~~~~~~~~~~
 
-.. figure:: _static/visualization_tab.png
-   :alt: Visualization Tab
-   :align: center
+The modular architecture allows for easy customization:
 
-This tab offers three visualization types:
+**Adding New Visualizations:**
 
-- **Signal Visualization with Anomalies**:
-  - Selected signals with highlighted anomaly regions
-  - Annotations for each detected fault
+.. code-block:: python
 
-- **Reconstruction Error**:
-  - Plot of reconstruction error over time
-  - Threshold line and highlighted anomalies
-  - Histogram of reconstruction error distribution
+   # Add custom visualization functions
+   def create_custom_plot(data, results):
+       # Your custom plotting logic
+       return fig
 
-- **Feature Importance**:
-  - Bar chart of top features for fault classification
-  - Feature importance by signal type (pie chart)
+**Integrating Additional Models:**
 
-Export Options
---------------
+.. code-block:: python
 
-The dashboard provides several export options:
+   # Add new model types
+   @st.cache_resource
+   def load_custom_model():
+       # Model loading logic
+       return model
 
-- **Download Results as CSV**:
-  - Complete table of all detected anomalies
+**Custom Export Formats:**
 
-- **Download Summary Report**:
-  - Markdown report with key findings
-  - Summary statistics
-  - Fault type distribution
+.. code-block:: python
 
-Using the Dashboard in Production
----------------------------------
+   # Add new export options
+   def generate_custom_report(results):
+       # Report generation logic
+       return report_data
 
-For production use, consider:
+Configuration Options
+~~~~~~~~~~~~~~~~~~~~~
 
-- Setting up the dashboard on a dedicated server
-- Configuring authentication for restricted access
-- Setting up automated data ingestion
-- Scheduling regular analyses
-- Integrating with notification systems
+Key configuration parameters in `app3.py`:
 
-Advanced Features
------------------
-
-Custom Thresholds
-~~~~~~~~~~~~~~~~~
-
-Fine-tune anomaly detection by adjusting the threshold percentile:
-
-- Higher values (e.g., 99th percentile): Fewer anomalies, higher confidence
-- Lower values (e.g., 90th percentile): More sensitive detection, potential false positives
-
-Signal Selection
-~~~~~~~~~~~~~~~~
-
-Select specific signals to focus your analysis:
-
-- Voltage signals (Va, Vb, Vc) for voltage-related issues
-- Current signals (Ia, Ib, Ic) for current-related faults
-- Combined analysis for comprehensive detection
-
-Interactive Exploration
-~~~~~~~~~~~~~~~~~~~~~~~
-
-The dashboard supports interactive exploration:
-
-- Zoom in/out of signal plots
-- Hover over data points for detailed information
-- Filter anomalies by fault type
-- Sort results by various criteria
+- **Model Paths**: Directory locations for saved models
+- **UI Themes**: Color schemes and styling options
+- **Performance Settings**: Caching strategies and memory limits
+- **Export Options**: Available formats and templates
 
 Troubleshooting
 ---------------
 
-Common Issues
-~~~~~~~~~~~~~
+Common Issues with app3.py
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- **Dashboard Not Loading**:
-  - Check if Streamlit is installed correctly
-  - Verify port 8501 is available
-  - Check for Python environment issues
+**Startup Issues:**
+- Verify all required dependencies are installed
+- Check model file availability and permissions
+- Ensure proper Python environment activation
 
-- **File Upload Errors**:
-  - Ensure CSV format is correct
-  - Check file size (limit: 200MB)
-  - Verify column names match requirements
+**Performance Issues:**
+- Monitor memory usage with large datasets
+- Adjust caching parameters for optimization
+- Consider data sampling for initial exploration
 
-- **Model Import Failures**:
-  - Verify model file formats (.h5, .joblib)
-  - Check if models were trained with compatible libraries
-  - Confirm models are not corrupted
+**Model Loading Errors:**
+- Verify model file compatibility
+- Check TensorFlow/Keras version compatibility
+- Ensure all required model files are present
 
-- **No Anomalies Detected**:
-  - Try lowering the threshold percentile
-  - Verify data contains actual anomalies
-  - Check if models are appropriate for your system
+**Visualization Problems:**
+- Clear browser cache if plots don't render
+- Check JavaScript console for errors
+- Verify Plotly.js compatibility
 
-Performance Tips
-----------------
+Best Practices
+--------------
 
-For large datasets:
+Using app3.py Effectively
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-- Use data sampling for faster visualization
-- Run analysis on specific time segments
-- Consider preprocessing data before upload
-- Use hardware acceleration when available
+**Data Preparation:**
+- Preprocess data to ensure quality
+- Use consistent sampling rates
+- Remove or interpolate missing values
+- Validate signal ranges and units
+
+**Analysis Workflow:**
+- Start with default parameters
+- Iteratively adjust thresholds based on results
+- Validate classifications with domain knowledge
+- Document analysis parameters for reproducibility
+
+**Result Interpretation:**
+- Consider confidence scores in decision-making
+- Cross-validate results with historical data
+- Use multiple visualization perspectives
+- Maintain analysis logs for future reference
 
 Next Steps
 ----------
 
-- :doc:`usage` - See examples of practical applications
-- :doc:`api` - Explore programmatic access to PowerAI
-- :doc:`models` - Learn more about the underlying models
+Now that you understand the main dashboard interface, the next section will cover the Smart Query capabilities that leverage natural language processing to provide an intuitive way to explore and analyze your power system data.
+
+Additional Resources:
+- :doc:`usage` - Practical application examples
+- :doc:`api` - Programmatic access to PowerAI
+- :doc:`models` - Understanding the underlying AI models
+- :doc:`nlp_interface` - Smart Query interface documentation (next section)
