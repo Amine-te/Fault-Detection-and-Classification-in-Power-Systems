@@ -31,6 +31,7 @@ Contents
    installation
    models
    dashboard
+   nlpqueryinterface
 
 Get Started
 ===========
