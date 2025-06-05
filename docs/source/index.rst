@@ -55,7 +55,3 @@ System Requirements
 - 4GB+ RAM for model training
 - GPU recommended for large datasets and complex models
 
-License
-=======
-
-This project is licensed under the MIT License - see the LICENSE file for details.
