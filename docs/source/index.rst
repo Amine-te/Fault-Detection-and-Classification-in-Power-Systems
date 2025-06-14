@@ -2,13 +2,6 @@
 PowerAI: Power System Fault Detection
 ===================================
 
-.. image:: https://img.shields.io/badge/license-MIT-blue.svg
-   :target: https://opensource.org/licenses/MIT
-   :alt: License: MIT
-
-.. image:: https://img.shields.io/badge/python-3.8%20%7C%203.9%20%7C%203.10-blue
-   :alt: Python Versions
-
 PowerAI is an advanced AI solution for detecting and classifying faults in electrical power systems using machine learning and deep learning techniques.
 
 Key Features
@@ -47,3 +40,14 @@ System Requirements
 - 4GB+ RAM for model training
 - GPU recommended for large datasets and complex models
 
+Encadrant
+===================
+Pr. Tawfik Masrour
+
+Membres de l'équipe
+===================
+Amine Faris, Abderrahman Es-safi
+
+Fillère
+===================
+GIATD:SI ENSAM Meknès
