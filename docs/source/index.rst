@@ -13,6 +13,18 @@ Key Features
 - Feature importance analysis to understand fault signatures
 - Comprehensive signal processing for voltage and current measurements
 
+Encadrant
+===================
+Pr. Tawfik Masrour
+
+Membres de l'équipe
+===================
+Amine Faris, Abderrahman Es-safi
+
+Fillère
+===================
+GIATD:SI ENSAM Meknès
+
 Contents
 ========
 
@@ -40,14 +52,3 @@ System Requirements
 - 4GB+ RAM for model training
 - GPU recommended for large datasets and complex models
 
-Encadrant
-===================
-Pr. Tawfik Masrour
-
-Membres de l'équipe
-===================
-Amine Faris, Abderrahman Es-safi
-
-Fillère
-===================
-GIATD:SI ENSAM Meknès

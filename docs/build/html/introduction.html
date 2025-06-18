@@ -19,8 +19,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Usage" href="usage.html" />
-    <link rel="prev" title="Welcome to the project documentation!" href="index.html" /> 
+    <link rel="next" title="Installation Guide" href="installation.html" />
+    <link rel="prev" title="PowerAI: Power System Fault Detection" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -42,11 +42,19 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules.html">Modules</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#power-grid-monitoring-system">Power Grid Monitoring System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#project-importance">Project Importance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-source">Data Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#practical-applications">Practical Applications</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dashboard.html">PowerAI Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nlpqueryinterface.html">NLP Query Interface</a></li>
 </ul>
 
         </div>
@@ -74,16 +82,57 @@
            <div itemprop="articleBody">
              
   <section id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h1>
-<p>Describe your project here.</p>
+<span id="id1"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h1>
+<section id="power-grid-monitoring-system">
+<h2>Power Grid Monitoring System<a class="headerlink" href="#power-grid-monitoring-system" title="Link to this heading"></a></h2>
+<p>This project addresses a critical need in modern electrical infrastructure - automatically detecting and identifying faults in power distribution networks. When abnormalities occur in voltage or current signals, they can lead to equipment damage, power outages, or safety hazards if not quickly identified and addressed.</p>
+</section>
+<section id="project-importance">
+<h2>Project Importance<a class="headerlink" href="#project-importance" title="Link to this heading"></a></h2>
+<p>Electrical faults come in different types (short circuits, line failures, etc.), each requiring specific responses. Traditional monitoring systems often require manual analysis by trained engineers. Our solution provides:</p>
+<ul class="simple">
+<li><p>Automatic real-time detection of power anomalies</p></li>
+<li><p>Instant classification of fault types</p></li>
+<li><p>Visual timeline of grid health</p></li>
+<li><p>Early warning before small issues become major failures</p></li>
+</ul>
+</section>
+<section id="data-source">
+<h2>Data Source<a class="headerlink" href="#data-source" title="Link to this heading"></a></h2>
+<p>The system was developed using realistic simulation data from MATLAB Simulink, which accurately models:</p>
+<ul class="simple">
+<li><p>Three-phase power transmission lines</p></li>
+<li><p>Various fault scenarios (LG, LLG, LL, etc.)</p></li>
+<li><p>Normal operating conditions with natural fluctuations</p></li>
+</ul>
+<p>The simulated data includes:
+- Voltage measurements (Va, Vb, Vc)
+- Current measurements (Ia, Ib, Ic)
+- Precise timestamps of fault occurrences</p>
+</section>
+<section id="practical-applications">
+<h2>Practical Applications<a class="headerlink" href="#practical-applications" title="Link to this heading"></a></h2>
+<p>This technology helps:</p>
+<ol class="arabic simple">
+<li><p><strong>Utility Companies</strong>:
+- Reduce outage times through faster fault identification
+- Prioritize maintenance crews based on fault severity</p></li>
+<li><p><strong>Industrial Facilities</strong>:
+- Protect sensitive equipment from power disturbances
+- Maintain production line reliability</p></li>
+<li><p><strong>Smart Grid Development</strong>:
+- Enable self-healing power networks
+- Provide data for infrastructure upgrades</p></li>
+</ol>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to the project documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="usage.html" class="btn btn-neutral float-right" title="Usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="PowerAI: Power System Fault Detection" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="installation.html" class="btn btn-neutral float-right" title="Installation Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

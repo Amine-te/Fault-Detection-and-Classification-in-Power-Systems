@@ -32,7 +32,7 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
-
+max_gap_samples = 1500
 # Custom CSS for modern styling
 st.markdown("""
 <style>
@@ -531,15 +531,15 @@ with tab2:
                     help="Percentile used to determine anomaly threshold"
                 )
                 
-                st.markdown("### 🔄 Post-processing Parameters")
+                # st.markdown("### 🔄 Post-processing Parameters")
                 
-                max_gap_samples = st.slider(
-                    "Maximum Gap for Merging (samples)",
-                    min_value=100,
-                    max_value=3000,
-                    value=1500,
-                    help="Maximum gap between anomalies to merge them into a single fault interval"
-                )
+                # max_gap_samples = st.slider(
+                #     "Maximum Gap for Merging (samples)",
+                #     min_value=100,
+                #     max_value=3000,
+                #     value=1500,
+                #     help="Maximum gap between anomalies to merge them into a single fault interval"
+                # )
                 
                 classification_sequence_length = st.slider(
                     "Classification Sequence Length",
@@ -919,7 +919,6 @@ with tab3:
         params_df = pd.DataFrame([
             {'Parameter': 'Sequence Length (Detection)', 'Value': results['parameters']['sequence_length']},
             {'Parameter': 'Threshold Percentile', 'Value': f"{results['parameters']['threshold_percentile']}%"},
-            {'Parameter': 'Max Gap for Merging', 'Value': f"{results['parameters']['max_gap_samples']} samples"},
             {'Parameter': 'Classification Sequence Length', 'Value': results['parameters']['classification_sequence_length']},
             {'Parameter': 'Calculated Threshold', 'Value': f"{results['threshold']:.6f}"}
         ])
