@@ -188,7 +188,7 @@ Performance Metrics
 Reconstruction Error Analysis
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: _static/reconstruction error.png
+.. figure:: _static/re_comp.png
    :alt: Reconstruction error comparison between models
    :align: center
    :width: 800px
