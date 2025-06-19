@@ -45,6 +45,7 @@ The Critical Need for Fault Detection and Classification
    :alt: Example of Power Line Fault
    :align: center
    :width: 500px
+   
 
 Common Fault Types in Power Systems:
 -------------------------------------
