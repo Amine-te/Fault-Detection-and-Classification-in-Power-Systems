@@ -157,9 +157,30 @@ Classical ML Algorithms Comparison
 Model Rankings
 ~~~~~~~~~~~~~~
 
-.. image:: _static/rankings.png
-   :alt: Final Model Rankings
-   :align: center
+.. list-table:: Model performance scores
+   :header-rows: 1
+   :widths: 30 20
+
+   * - Modèle
+     - Score Final
+   * - Random Forest
+     - 0.9317
+   * - K-nearest Neighbors
+     - 0.8924
+   * - Extra Trees
+     - 0.8889
+   * - Naive Bayes
+     - 0.8422
+   * - SVM (RBF)
+     - 0.7789
+   * - SVM (Linear)
+     - 0.7305
+   * - Logistic Regression
+     - 0.7103
+   * - Decision Tree
+     - 0.6973
+   * - Gradient Boosting
+     - 0.6731
 
 The complete performance analysis shows:
 
