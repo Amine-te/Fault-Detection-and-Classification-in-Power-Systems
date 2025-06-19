@@ -140,17 +140,15 @@ Expected Outcomes
 Next Steps: Data Acquisition and Modeling
 =========================================
 
-The foundation of any successful AI system lies in high-quality, representative training data. In the following section, we will explore how we obtained comprehensive fault data through advanced simulation techniques using MATLAB Simulink models.
+The foundation of any successful AI system lies in high-quality, representative training data. In the following section, we will explore how we obtained comprehensive fault data through advanced simulation techniques using an existing MATLAB Simulink model sourced from the open-source community.
 
-**→ Continue to:** :doc:`Data Acquisition from Simulink Models <data_acquisition>`
+→ Continue to: :doc:`Data Acquisition from Simulink Models <data_acquisition>`
 
 Our next presentation will detail:
 
-* Simulink model development for three-phase power systems
-* Fault simulation techniques and scenarios
-* Data extraction and preprocessing methods
-* Dataset preparation for machine learning training
+- Sourcing and adapting an existing Simulink model for three-phase power systems
+- Understanding the model architecture and fault simulation capabilities
+- Data extraction and preprocessing methods
+- Dataset preparation for machine learning training
 
 ----
-
-*This introduction provides the foundation for understanding PowerAI's innovative approach to electrical fault detection. The combination of deep learning techniques with comprehensive electrical system knowledge enables unprecedented accuracy and reliability in power system protection.*
