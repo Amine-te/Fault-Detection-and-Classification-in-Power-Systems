@@ -2,7 +2,7 @@
 PowerAI: Power System Fault Detection
 ===================================
 
-.. image:: _static/transmission_line.jpg
+.. image:: _static/transmission_line.png
    :alt: PowerAI Logo
    :align: center
    :width: 400px
@@ -44,8 +44,6 @@ Our AI-driven solution combines advanced signal processing with deep learning mo
 
 Key Features
 ============
-
-**Core Capabilities**
 
 - **Real-time Anomaly Detection:** Advanced autoencoder neural networks continuously monitor power system signals to identify deviations from normal operation patterns
 - **Intelligent Fault Classification:** Automatic categorization of detected anomalies into specific fault types (short circuits, ground faults, equipment failures, etc.)
