@@ -59,6 +59,7 @@ Contents
    :caption: User Guide
 
    introduction
+   data_acquisition
    installation
    models
    dashboard
@@ -67,10 +68,4 @@ Contents
 Get Started
 ===========
 
-Ready to start using PowerAI? Follow these steps:
-
-1. **Installation:** Begin with our comprehensive :doc:`installation guide <installation>` to set up your development environment
-2. **Quick Start:** Try the :doc:`quick start tutorial <quickstart>` to get PowerAI running with sample data
-3. **Explore Models:** Learn about the AI models in our :doc:`models documentation <models>`
-4. **Dashboard Tour:** Discover the monitoring capabilities in the :doc:`dashboard guide <dashboard>`
-5. **Advanced Usage:** Check out :doc:`tutorials <tutorials>` for advanced use cases and customization
+To get started with PowerAI, follow the :doc:`installation guide <installation>` and check out the :doc:`usage examples <usage>`.
