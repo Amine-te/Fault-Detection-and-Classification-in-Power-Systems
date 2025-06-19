@@ -59,8 +59,8 @@ Contents
    :caption: User Guide
 
    introduction
-   data_acquisition
    installation
+   data_acquisition
    fault_detection
    fault_classification
    dashboard
