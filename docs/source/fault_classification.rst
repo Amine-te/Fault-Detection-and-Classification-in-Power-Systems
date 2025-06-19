@@ -16,17 +16,25 @@ Feature Extraction
 
 The traditional ML system extracts 42 distinct features from detected anomaly intervals, categorized into four main groups:
 
-+--------------+---------------------------------------------+--------+
-| Category     | Features                                    | Number |
-+==============+=============================================+========+
-| Statistics   | Mean, Standard Deviation, Skewness, Kurtosis| 24     |
-+--------------+---------------------------------------------+--------+
-| Signal Shape | RMS, Peak-to-Peak, Crest Factor              | 18     |
-+--------------+---------------------------------------------+--------+
-| Correlations | VaVb, VbVc, VaIa                             | 3      |
-+--------------+---------------------------------------------+--------+
-| Duration     | Interval duration                            | 1      |
-+--------------+---------------------------------------------+--------+
+.. list-table:: Feature Categories
+   :widths: 25 50 15
+   :header-rows: 1
+
+   * - Category
+     - Features
+     - Number
+   * - Statistics
+     - Mean, Standard Deviation, Skewness, Kurtosis
+     - 24
+   * - Signal Shape
+     - RMS, Peak-to-Peak, Crest Factor
+     - 18
+   * - Correlations
+     - VaVb, VbVc, VaIa
+     - 3
+   * - Duration
+     - Interval duration
+     - 1
 
 Time-based Labeling
 ~~~~~~~~~~~~~~~~~~~
@@ -38,19 +46,28 @@ Data Augmentation for Classical ML
 
 To address the initial dataset limitation of only 15 samples and class imbalance, several augmentation techniques are applied:
 
-+-------------------------+------------+----------------------------------------+
-| Method                  | Percentage | Description                            |
-+=========================+============+========================================+
-| Gaussian Noise          | 20%        | 15-30% of the standard deviation       |
-+-------------------------+------------+----------------------------------------+
-| Scaling                 | 20%        | ±20-40% plus noise                      |
-+-------------------------+------------+----------------------------------------+
-| Feature Dropout         | 20%        | 20% of features removed                 |
-+-------------------------+------------+----------------------------------------+
-| Correlated Perturbations| 20%        | Noise based on covariance               |
-+-------------------------+------------+----------------------------------------+
-| Mixed Perturbations     | 20%        | Combination of methods                   |
-+-------------------------+------------+----------------------------------------+
+.. list-table:: Data Augmentation Methods
+   :widths: 30 15 45
+   :header-rows: 1
+
+   * - Method
+     - Percentage
+     - Description
+   * - Gaussian Noise
+     - 20%
+     - 15-30% of the standard deviation
+   * - Scaling
+     - 20%
+     - ±20-40% plus noise
+   * - Feature Dropout
+     - 20%
+     - 20% of features removed
+   * - Correlated Perturbations
+     - 20%
+     - Noise based on covariance
+   * - Mixed Perturbations
+     - 20%
+     - Combination of methods
 
 **Results**: The dataset expanded from 15 original samples to 315 augmented samples (21× increase).
 
@@ -62,21 +79,31 @@ Algorithm Selection
 
 Nine different machine learning algorithms were evaluated across multiple categories:
 
-+------------+------------------------------+--------------------------+
-| Category   | Models                       | Key Hyperparameters      |
-+============+==============================+==========================+
-| Ensembles  | Random Forest, Gradient Boosting, Extra Trees | n_estimators=100, max_depth=6-15 |
-+------------+------------------------------+--------------------------+
-| SVM        | RBF Kernel, Linear Kernel    | C=1.0, probability=True  |
-+------------+------------------------------+--------------------------+
-| Neighborhood | K-Nearest Neighbors         | k=7                      |
-+------------+------------------------------+--------------------------+
-| Probabilistic | Naive Bayes                | -                        |
-+------------+------------------------------+--------------------------+
-| Linear     | Logistic Regression          | C=1.0, max_iter=1000     |
-+------------+------------------------------+--------------------------+
-| Tree       | Decision Tree                | max_depth=12             |
-+------------+------------------------------+--------------------------+
+.. list-table:: ML Algorithm Categories
+   :widths: 20 40 30
+   :header-rows: 1
+
+   * - Category
+     - Models
+     - Key Hyperparameters
+   * - Ensembles
+     - Random Forest, Gradient Boosting, Extra Trees
+     - n_estimators=100, max_depth=6-15
+   * - SVM
+     - RBF Kernel, Linear Kernel
+     - C=1.0, probability=True
+   * - Neighborhood
+     - K-Nearest Neighbors
+     - k=7
+   * - Probabilistic
+     - Naive Bayes
+     - --
+   * - Linear
+     - Logistic Regression
+     - C=1.0, max_iter=1000
+   * - Tree
+     - Decision Tree
+     - max_depth=12
 
 Training Pipeline
 ~~~~~~~~~~~~~~~~~
@@ -93,17 +120,30 @@ Classical ML Scoring Methodology
 
 The final model ranking uses a composite scoring system that balances multiple performance aspects:
 
-+-----------------------+---------+---------------------------------------------------+---------------------------+
-| Component             | Weight  | Formula                                           | Objective                 |
-+=======================+=========+===================================================+===========================+
-| Test Accuracy         | 40%     | test_accuracy                                    | Real-world performance    |
-+-----------------------+---------+---------------------------------------------------+---------------------------+
-| F1-Score              | 30%     | f1_score (weighted)                              | Balance of precision/recall|
-+-----------------------+---------+---------------------------------------------------+---------------------------+
-| Overfitting Penalty   | 20%     | max(0, 1 - ((train_acc - test_acc) / train_acc)) | Penalizes overfitting     |
-+-----------------------+---------+---------------------------------------------------+---------------------------+
-| CV Stability          | 10%     | 1 – (cv_std / max_cv_std)                        | Rewards stability         |
-+-----------------------+---------+---------------------------------------------------+---------------------------+
+.. list-table:: Scoring Components
+   :widths: 25 15 35 25
+   :header-rows: 1
+
+   * - Component
+     - Weight
+     - Formula
+     - Objective
+   * - Test Accuracy
+     - 40%
+     - test_accuracy
+     - Real-world performance
+   * - F1-Score
+     - 30%
+     - f1_score (weighted)
+     - Balance of precision/recall
+   * - Overfitting Penalty
+     - 20%
+     - max(0, 1 - ((train_acc - test_acc) / train_acc))
+     - Penalizes overfitting
+   * - CV Stability
+     - 10%
+     - 1 – (cv_std / max_cv_std)
+     - Rewards stability
 
 **Score Formula**:
 
@@ -147,7 +187,7 @@ Best Classical ML Model Analysis: Random Forest
    :alt: Random Forest Confusion Matrix
    :align: center
 
-.. image:: _static/feature importance.png
+.. image:: _static/feature_importance
    :alt: Random Forest Feature Importance
    :align: center
 
@@ -213,17 +253,25 @@ Deep Learning Model Architectures
 
 Four different neural network architectures were implemented and evaluated:
 
-+------------+-----------------------------------------+---------------+
-| Model      | Key Architecture                        | Parameters    |
-+============+=========================================+===============+
-| LSTM       | LSTM(128) → LSTM(64) + Dense(32)       | ~127K params  |
-+------------+-----------------------------------------+---------------+
-| CNN-LSTM   | Conv1D(64,32) → LSTM(64,32)             | ~51K params   |
-+------------+-----------------------------------------+---------------+
-| Transformer| MultiHeadAttention(8) + LayerNorm       | ~14K params   |
-+------------+-----------------------------------------+---------------+
-| Bi-GRU     | Bidirectional GRU(64,32)                 | ~67K params   |
-+------------+-----------------------------------------+---------------+
+.. list-table:: Model Architectures
+   :widths: 20 50 20
+   :header-rows: 1
+
+   * - Model
+     - Key Architecture
+     - Parameters
+   * - LSTM
+     - LSTM(128) → LSTM(64) + Dense(32)
+     - ~127K params
+   * - CNN-LSTM
+     - Conv1D(64,32) → LSTM(64,32)
+     - ~51K params
+   * - Transformer
+     - MultiHeadAttention(8) + LayerNorm
+     - ~14K params
+   * - Bi-GRU
+     - Bidirectional GRU(64,32)
+     - ~67K params
 
 **Hybrid Approach**
    - **Sequential Input**: Time-series data (128 × 6)
@@ -327,7 +375,7 @@ Best Performing Models
    - Reduced overall classification errors
    - More robust handling of complex temporal patterns
 
-Real-World Application Results
+Application Results
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Fault Detection and Classification
