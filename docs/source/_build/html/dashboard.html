@@ -1,0 +1,489 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PowerAI Dashboard &mdash; Fault Detection and Classification in Power Systems 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="NLP Query Interface" href="nlpqueryinterface.html" />
+    <link rel="prev" title="Models" href="models.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Fault Detection and Classification in Power Systems
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_acquisition.html">Data Acquisition from MATLAB Simulink Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.html">Models</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">PowerAI Dashboard</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#launching-the-dashboard">Launching the Dashboard</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#dashboard-architecture">Dashboard Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dashboard-interface">Dashboard Interface</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#data-upload-visualization-tab">Data Upload &amp; Visualization Tab</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#data-format-requirements">Data Format Requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#analysis-configuration-tab">Analysis Configuration Tab</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#analysis-workflow">Analysis Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#results-export-tab">Results &amp; Export Tab</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#export-capabilities">Export Capabilities</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#smart-query-tab">Smart Query Tab</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#key-features-of-app3-py">Key Features of app3.py</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#enhanced-user-experience">Enhanced User Experience</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#performance-optimizations">Performance Optimizations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#model-integration-architecture">Model Integration Architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-visualization-features">Advanced Visualization Features</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#production-deployment">Production Deployment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#deploying-app3-py-in-production">Deploying app3.py in Production</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#customization-guide">Customization Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#extending-app3-py">Extending app3.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration-options">Configuration Options</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#common-issues-with-app3-py">Common Issues with app3.py</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#best-practices">Best Practices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-app3-py-effectively">Using app3.py Effectively</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nlpqueryinterface.html">NLP Query Interface</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Fault Detection and Classification in Power Systems</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">PowerAI Dashboard</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/dashboard.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="powerai-dashboard">
+<h1>PowerAI Dashboard<a class="headerlink" href="#powerai-dashboard" title="Link to this heading"></a></h1>
+<p>PowerAI includes an interactive Streamlit-based dashboard for visualizing power system data, detecting anomalies, and classifying faults. This document provides a comprehensive guide to using the dashboard effectively.</p>
+<figure class="align-center" id="id1">
+<img alt="PowerAI Dashboard" src="_static/dashboard_full.png" />
+<figcaption>
+<p><span class="caption-text">PowerAI’s interactive dashboard for power system fault detection and analysis</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<section id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h2>
+<section id="launching-the-dashboard">
+<h3>Launching the Dashboard<a class="headerlink" href="#launching-the-dashboard" title="Link to this heading"></a></h3>
+<p>To launch the PowerAI dashboard, run the following command in your terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>app3.py
+</pre></div>
+</div>
+<p>Alternatively, you can use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>streamlit<span class="w"> </span>run<span class="w"> </span>app3.py
+</pre></div>
+</div>
+<p>The dashboard will start and be accessible at <a class="reference external" href="http://localhost:8501">http://localhost:8501</a> in your web browser.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The main dashboard application is contained in <cite>app3.py</cite>, which represents the latest version of the PowerAI interface with enhanced features and improved user experience.</p>
+</div>
+<p><strong>Command-line Options:</strong></p>
+<p>You can customize the dashboard launch by passing Streamlit arguments:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>streamlit<span class="w"> </span>run<span class="w"> </span>app3.py<span class="w"> </span>--port<span class="w"> </span><span class="m">8502</span><span class="w">       </span><span class="c1"># Use a different port</span>
+streamlit<span class="w"> </span>run<span class="w"> </span>app3.py<span class="w"> </span>--theme.base<span class="w"> </span>dark<span class="w"> </span><span class="c1"># Use dark theme</span>
+streamlit<span class="w"> </span>run<span class="w"> </span>app3.py<span class="w"> </span>--server.headless<span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="c1"># Run in headless mode</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="dashboard-architecture">
+<h2>Dashboard Architecture<a class="headerlink" href="#dashboard-architecture" title="Link to this heading"></a></h2>
+<p>The <cite>app3.py</cite> application is built with a modular architecture:</p>
+<ul class="simple">
+<li><p><strong>Core Dashboard</strong>: Main interface for data upload, analysis, and visualization</p></li>
+<li><p><strong>Model Integration</strong>: Seamless integration with LSTM autoencoders and transformer-based classifiers</p></li>
+<li><p><strong>Advanced Visualization</strong>: Interactive plots using Plotly for enhanced user experience</p></li>
+<li><p><strong>Export Capabilities</strong>: Comprehensive reporting in CSV and PDF formats</p></li>
+<li><p><strong>Smart Query Interface</strong>: Natural language processing capabilities (covered in the next section)</p></li>
+</ul>
+<p>The dashboard imports the NLP query interface from <cite>nlp_query_interface.py</cite>, which provides intelligent data querying capabilities that will be detailed in the following section.</p>
+</section>
+<section id="dashboard-interface">
+<h2>Dashboard Interface<a class="headerlink" href="#dashboard-interface" title="Link to this heading"></a></h2>
+<p>The dashboard is organized into four main tabs:</p>
+<ol class="arabic simple">
+<li><p><strong>📊 Data Upload &amp; Visualization</strong>: Upload and preview power system data</p></li>
+<li><p><strong>⚙️ Analysis Configuration</strong>: Configure detection parameters and run analysis</p></li>
+<li><p><strong>📈 Results &amp; Export</strong>: View results and export reports</p></li>
+<li><p><strong>🤖 Smart Query</strong>: Natural language interface for data exploration</p></li>
+</ol>
+<section id="data-upload-visualization-tab">
+<h3>Data Upload &amp; Visualization Tab<a class="headerlink" href="#data-upload-visualization-tab" title="Link to this heading"></a></h3>
+<figure class="align-center">
+<img alt="Data Upload &amp; Visualization Tab" src="_static/data_upload_tab.png" />
+</figure>
+<p>This tab provides comprehensive data management capabilities:</p>
+<p><strong>Data Upload Features:</strong>
+- <strong>CSV File Upload</strong>: Drag-and-drop or browse for CSV files
+- <strong>Real-time Validation</strong>: Automatic validation of required columns
+- <strong>Data Preview</strong>: Interactive preview of uploaded data with statistics
+- <strong>Quality Metrics</strong>: Display of data quality indicators</p>
+<p><strong>Visualization Features:</strong>
+- <strong>Signal Plots</strong>: Interactive voltage and current signal visualization
+- <strong>Multi-signal Selection</strong>: Choose specific signals to display
+- <strong>Responsive Design</strong>: Plots adapt to different screen sizes
+- <strong>Export Options</strong>: Save visualizations as images</p>
+<section id="data-format-requirements">
+<h4>Data Format Requirements<a class="headerlink" href="#data-format-requirements" title="Link to this heading"></a></h4>
+<p>Your CSV file should follow this format:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Time,Va,Vb,Vc,Ia,Ib,Ic
+0.000,220.1,220.3,219.8,5.1,5.2,5.0
+0.001,220.2,220.1,219.9,5.2,5.1,5.1
+...
+</pre></div>
+</div>
+<p><strong>Column Specifications:</strong>
+- <cite>Time</cite>: Timestamp in seconds (numeric)
+- <cite>Va</cite>, <cite>Vb</cite>, <cite>Vc</cite>: Three-phase voltage signals (numeric)
+- <cite>Ia</cite>, <cite>Ib</cite>, <cite>Ic</cite>: Three-phase current signals (numeric)</p>
+<p><strong>Data Quality Requirements:</strong>
+- Regular sampling rate recommended
+- No missing values in critical columns
+- Minimum 1000 samples for reliable analysis
+- Consistent units across measurements</p>
+</section>
+</section>
+<section id="analysis-configuration-tab">
+<h3>Analysis Configuration Tab<a class="headerlink" href="#analysis-configuration-tab" title="Link to this heading"></a></h3>
+<figure class="align-center">
+<img alt="Analysis Configuration Tab" src="_static/analysis_config_tab.png" />
+</figure>
+<p>This tab provides sophisticated analysis configuration:</p>
+<p><strong>Detection Parameters:</strong>
+- <strong>Sequence Length</strong>: Window size for LSTM autoencoder (20-200 samples)
+- <strong>Threshold Percentile</strong>: Sensitivity control for anomaly detection (90-99%)
+- <strong>Advanced Thresholds</strong>: Dynamic threshold adjustment based on data characteristics</p>
+<p><strong>Post-processing Parameters:</strong>
+- <strong>Maximum Gap for Merging</strong>: Controls interval merging (100-3000 samples)
+- <strong>Classification Sequence Length</strong>: Window size for fault classification (64-256 samples)
+- <strong>Filtering Options</strong>: Additional noise reduction and signal conditioning</p>
+<p><strong>Model Integration:</strong>
+The tab automatically loads pre-trained models:
+- LSTM Autoencoder for anomaly detection (<cite>detector/</cite> directory)
+- Transformer-based classifier for fault classification (<cite>classifier_transformer/</cite> directory)</p>
+<section id="analysis-workflow">
+<h4>Analysis Workflow<a class="headerlink" href="#analysis-workflow" title="Link to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p><strong>Data Preprocessing</strong>: Automatic scaling and sequence generation</p></li>
+<li><p><strong>Anomaly Detection</strong>: LSTM autoencoder reconstruction error analysis</p></li>
+<li><p><strong>Threshold Calculation</strong>: Dynamic threshold based on percentile selection</p></li>
+<li><p><strong>Interval Merging</strong>: Consolidation of nearby anomalies into fault intervals</p></li>
+<li><p><strong>Fault Classification</strong>: Multi-class classification of detected intervals</p></li>
+<li><p><strong>Results Compilation</strong>: Comprehensive results with confidence metrics</p></li>
+</ol>
+</section>
+</section>
+<section id="results-export-tab">
+<h3>Results &amp; Export Tab<a class="headerlink" href="#results-export-tab" title="Link to this heading"></a></h3>
+<figure class="align-center">
+<img alt="Results &amp; Export Tab" src="_static/results_tab.png" />
+</figure>
+<p>This tab presents comprehensive analysis results:</p>
+<p><strong>Summary Metrics:</strong>
+- <strong>Detection Statistics</strong>: Total anomalies, detection rate, fault intervals
+- <strong>Classification Results</strong>: Successful classifications and confidence levels
+- <strong>Performance Metrics</strong>: Analysis duration and processing statistics</p>
+<p><strong>Interactive Visualizations:</strong>
+- <strong>Reconstruction Error Plot</strong>: Time series of reconstruction errors with threshold
+- <strong>Signal Overlays</strong>: Original signals with highlighted fault regions
+- <strong>Classification Confidence</strong>: Distribution of classification confidence scores
+- <strong>Fault Type Distribution</strong>: Pie charts and histograms of detected fault types</p>
+<p><strong>Detailed Results Table:</strong>
+- <strong>Fault Intervals</strong>: Start/end times, duration, and classification results
+- <strong>Confidence Scores</strong>: Classification confidence with progress bars
+- <strong>Sortable Columns</strong>: Interactive sorting and filtering capabilities</p>
+<section id="export-capabilities">
+<h4>Export Capabilities<a class="headerlink" href="#export-capabilities" title="Link to this heading"></a></h4>
+<p><strong>CSV Export:</strong>
+- Comprehensive data export with summary statistics
+- Fault interval details with timestamps and classifications
+- Analysis parameters and model configuration</p>
+<p><strong>PDF Reports:</strong>
+- Professional reports with charts and tables
+- Summary statistics and detailed findings
+- Configurable report templates with company branding</p>
+</section>
+</section>
+<section id="smart-query-tab">
+<h3>Smart Query Tab<a class="headerlink" href="#smart-query-tab" title="Link to this heading"></a></h3>
+<p>The Smart Query tab provides an intelligent interface for data exploration using natural language processing capabilities. This advanced feature allows users to interact with their power system data using conversational queries.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Detailed documentation for the Smart Query interface, including its natural language processing capabilities and query examples, is provided in the next section of this documentation.</p>
+</div>
+</section>
+</section>
+<section id="key-features-of-app3-py">
+<h2>Key Features of app3.py<a class="headerlink" href="#key-features-of-app3-py" title="Link to this heading"></a></h2>
+<section id="enhanced-user-experience">
+<h3>Enhanced User Experience<a class="headerlink" href="#enhanced-user-experience" title="Link to this heading"></a></h3>
+<p>The <cite>app3.py</cite> implementation includes several UX improvements:</p>
+<ul class="simple">
+<li><p><strong>Modern Styling</strong>: Custom CSS with gradient backgrounds and modern design elements</p></li>
+<li><p><strong>Responsive Layout</strong>: Adaptive interface that works on different screen sizes</p></li>
+<li><p><strong>Interactive Elements</strong>: Hover effects, progress indicators, and real-time feedback</p></li>
+<li><p><strong>Error Handling</strong>: Comprehensive error messages and recovery suggestions</p></li>
+</ul>
+</section>
+<section id="performance-optimizations">
+<h3>Performance Optimizations<a class="headerlink" href="#performance-optimizations" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Caching</strong>: Strategic use of Streamlit’s caching for model loading and data processing</p></li>
+<li><p><strong>Memory Management</strong>: Efficient handling of large datasets</p></li>
+<li><p><strong>Progressive Loading</strong>: Staged loading of components for faster initial response</p></li>
+<li><p><strong>Session Management</strong>: Persistent session state across tab navigation</p></li>
+</ul>
+</section>
+<section id="model-integration-architecture">
+<h3>Model Integration Architecture<a class="headerlink" href="#model-integration-architecture" title="Link to this heading"></a></h3>
+<p>The application seamlessly integrates multiple AI models:</p>
+<p><strong>LSTM Autoencoder Integration:</strong>
+- Automatic model loading with error handling
+- Preprocessing pipeline with saved scalers
+- Configurable sequence generation
+- Real-time reconstruction error calculation</p>
+<p><strong>Transformer Classifier Integration:</strong>
+- Multi-input model support (time series + statistical features)
+- Statistical feature extraction pipeline
+- Confidence score calculation and visualization
+- Class label mapping and interpretation</p>
+</section>
+<section id="advanced-visualization-features">
+<h3>Advanced Visualization Features<a class="headerlink" href="#advanced-visualization-features" title="Link to this heading"></a></h3>
+<p><strong>Interactive Plotly Charts:</strong>
+- Zoomable and pannable time series plots
+- Multi-subplot layouts for signal comparison
+- Customizable color schemes and styling
+- Export capabilities for presentations</p>
+<p><strong>Real-time Updates:</strong>
+- Dynamic plot updates based on user selections
+- Responsive threshold visualization
+- Interactive anomaly highlighting
+- Progressive result rendering</p>
+</section>
+</section>
+<section id="production-deployment">
+<h2>Production Deployment<a class="headerlink" href="#production-deployment" title="Link to this heading"></a></h2>
+<section id="deploying-app3-py-in-production">
+<h3>Deploying app3.py in Production<a class="headerlink" href="#deploying-app3-py-in-production" title="Link to this heading"></a></h3>
+<p>For production deployment, consider:</p>
+<p><strong>Server Configuration:</strong>
+- Use production-grade WSGI servers (Gunicorn, uWSGI)
+- Configure reverse proxy (Nginx, Apache)
+- Set up SSL/TLS certificates for secure access
+- Implement load balancing for high availability</p>
+<p><strong>Security Considerations:</strong>
+- User authentication and authorization
+- Data encryption at rest and in transit
+- Input validation and sanitization
+- Audit logging for compliance</p>
+<p><strong>Scalability Options:</strong>
+- Containerization with Docker
+- Kubernetes orchestration for cloud deployment
+- Auto-scaling based on usage patterns
+- Database integration for persistent storage</p>
+<p><strong>Monitoring and Maintenance:</strong>
+- Application performance monitoring
+- Error tracking and alerting
+- Regular model updates and retraining
+- Backup and disaster recovery procedures</p>
+</section>
+</section>
+<section id="customization-guide">
+<h2>Customization Guide<a class="headerlink" href="#customization-guide" title="Link to this heading"></a></h2>
+<section id="extending-app3-py">
+<h3>Extending app3.py<a class="headerlink" href="#extending-app3-py" title="Link to this heading"></a></h3>
+<p>The modular architecture allows for easy customization:</p>
+<p><strong>Adding New Visualizations:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add custom visualization functions</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_custom_plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">results</span><span class="p">):</span>
+    <span class="c1"># Your custom plotting logic</span>
+    <span class="k">return</span> <span class="n">fig</span>
+</pre></div>
+</div>
+<p><strong>Integrating Additional Models:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add new model types</span>
+<span class="nd">@st</span><span class="o">.</span><span class="n">cache_resource</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">load_custom_model</span><span class="p">():</span>
+    <span class="c1"># Model loading logic</span>
+    <span class="k">return</span> <span class="n">model</span>
+</pre></div>
+</div>
+<p><strong>Custom Export Formats:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add new export options</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_custom_report</span><span class="p">(</span><span class="n">results</span><span class="p">):</span>
+    <span class="c1"># Report generation logic</span>
+    <span class="k">return</span> <span class="n">report_data</span>
+</pre></div>
+</div>
+</section>
+<section id="configuration-options">
+<h3>Configuration Options<a class="headerlink" href="#configuration-options" title="Link to this heading"></a></h3>
+<p>Key configuration parameters in <cite>app3.py</cite>:</p>
+<ul class="simple">
+<li><p><strong>Model Paths</strong>: Directory locations for saved models</p></li>
+<li><p><strong>UI Themes</strong>: Color schemes and styling options</p></li>
+<li><p><strong>Performance Settings</strong>: Caching strategies and memory limits</p></li>
+<li><p><strong>Export Options</strong>: Available formats and templates</p></li>
+</ul>
+</section>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<section id="common-issues-with-app3-py">
+<h3>Common Issues with app3.py<a class="headerlink" href="#common-issues-with-app3-py" title="Link to this heading"></a></h3>
+<p><strong>Startup Issues:</strong>
+- Verify all required dependencies are installed
+- Check model file availability and permissions
+- Ensure proper Python environment activation</p>
+<p><strong>Performance Issues:</strong>
+- Monitor memory usage with large datasets
+- Adjust caching parameters for optimization
+- Consider data sampling for initial exploration</p>
+<p><strong>Model Loading Errors:</strong>
+- Verify model file compatibility
+- Check TensorFlow/Keras version compatibility
+- Ensure all required model files are present</p>
+<p><strong>Visualization Problems:</strong>
+- Clear browser cache if plots don’t render
+- Check JavaScript console for errors
+- Verify Plotly.js compatibility</p>
+</section>
+</section>
+<section id="best-practices">
+<h2>Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading"></a></h2>
+<section id="using-app3-py-effectively">
+<h3>Using app3.py Effectively<a class="headerlink" href="#using-app3-py-effectively" title="Link to this heading"></a></h3>
+<p><strong>Data Preparation:</strong>
+- Preprocess data to ensure quality
+- Use consistent sampling rates
+- Remove or interpolate missing values
+- Validate signal ranges and units</p>
+<p><strong>Analysis Workflow:</strong>
+- Start with default parameters
+- Iteratively adjust thresholds based on results
+- Validate classifications with domain knowledge
+- Document analysis parameters for reproducibility</p>
+<p><strong>Result Interpretation:</strong>
+- Consider confidence scores in decision-making
+- Cross-validate results with historical data
+- Use multiple visualization perspectives
+- Maintain analysis logs for future reference</p>
+</section>
+</section>
+<section id="next-steps">
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading"></a></h2>
+<p>Now that you understand the main dashboard interface, the next section will cover the Smart Query capabilities that leverage natural language processing to provide an intuitive way to explore and analyze your power system data.</p>
+<p>Additional Resources:
+- <span class="xref std std-doc">usage</span> - Practical application examples
+- <span class="xref std std-doc">api</span> - Programmatic access to PowerAI
+- <a class="reference internal" href="models.html"><span class="doc">Models</span></a> - Understanding the underlying AI models
+- <span class="xref std std-doc">nlp_interface</span> - Smart Query interface documentation (next section)</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="models.html" class="btn btn-neutral float-left" title="Models" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="nlpqueryinterface.html" class="btn btn-neutral float-right" title="NLP Query Interface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Amine Faris.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

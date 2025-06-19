@@ -142,24 +142,32 @@ After cloning and installation, your project directory should contain:
 
 ::
 
-    PowerGridAnomalyDetection/
-    ├── .git/                          # Git repository metadata
-    ├── .gitignore                     # Git ignore file
-    ├── data/                          # Sample datasets
-    ├── models/                        # Pretrained models
-    │   ├── detector/                  # Anomaly detector model
-    │   │   ├── detector_model.h5
-    │   │   └── detector_scaler.joblib
-    │   └── classifier/                # Fault type classifier
-    │       ├── classifier_model.joblib
-    │       ├── classifier_scaler.joblib
-    │       └── class_names.joblib
-    ├── TimSeriesProject.ipynb         # Jupyter notebooks for exploration and experimentation
-    ├── app.py                         # Streamlit application for visualization and interaction
-    ├── nlpQueryinterface.py           # NLP query interface
-    ├── requirements.txt               # List of dependencies
-    ├── README.md                      # Project overview and usage instructions
-    └── LICENSE                        # Project license file
+   PowerGridAnomalyDetection/
+   ├── .git/                          # Git repository metadata
+   ├── .gitignore                     # Git ignore file
+   ├── data/                          # Sample datasets
+   ├── models/                        # Pretrained models
+   │   ├── detector/                  # Anomaly detector model
+   │   │   ├── detector_model.h5
+   │   │   └── detector_scaler.joblib
+   │   ├── classifier/                # Fault type classifier
+   │   │   ├── classifier_model.joblib
+   │   │   ├── classifier_scaler.joblib
+   │   │   └── class_names.joblib
+   │   └── classifier_transformer/    # Advanced deep learning fault classifier
+   │       ├── best_fault_classifier.h5
+   │       ├── complete_dl_fault_system.joblib
+   │       ├── feature_scaler.joblib
+   │       ├── label_encoder.joblib
+   │       ├── model_metadata.joblib
+   │       └── sequence_scaler.joblib
+   ├── TimSeriesProject.ipynb         # Jupyter notebooks for exploration and experimentation
+   ├── app.py                         # Streamlit application for visualization and interaction
+   ├── nlpQueryinterface.py           # NLP query interface
+   ├── requirements.txt               # List of dependencies
+   ├── README.md                      # Project overview and usage instructions
+   └── LICENSE                        # Project license file
+
 
 Git Repository Management
 ------------------------
@@ -198,12 +206,6 @@ Option 2: Streamlit Dashboard (Visualization)
 .. code-block:: bash
 
    streamlit run app.py
-
-Option 3: NLP Query Interface
-
-.. code-block:: bash
-
-   python nlpQueryinterface.py
 
 Troubleshooting
 ---------------
@@ -255,10 +257,3 @@ For additional support:
 - Consult the project's ``FAQ.md``
 - Open an issue on our GitHub repository
 - Check the commit history for recent changes: ``git log --oneline``
-
-Next Steps
-----------
-
-- :ref:`quickstart`: Learn how to run your first analysis
-- :ref:`configuration`: Customize system parameters
-- :ref:`troubleshooting`: Detailed error resolution guide

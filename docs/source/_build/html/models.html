@@ -1,0 +1,395 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Models &mdash; Fault Detection and Classification in Power Systems 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="PowerAI Dashboard" href="dashboard.html" />
+    <link rel="prev" title="Installation Guide" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Fault Detection and Classification in Power Systems
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_acquisition.html">Data Acquisition from MATLAB Simulink Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#anomaly-detection-model">Anomaly Detection Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#architecture">Architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#training-process">Training Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inference-and-anomaly-detection">Inference and Anomaly Detection</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#fault-classification-model">Fault Classification Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#feature-extraction">Feature Extraction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#supported-fault-types">Supported Fault Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Training Process</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#classification-transformer-model">Classification Transformer Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#model-components">Model Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Training Process</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#model-evaluation">Model Evaluation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#performance-metrics">Performance Metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#benchmark-results">Benchmark Results</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#model-file-structure">Model File Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#custom-models">Custom Models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-custom-models">Creating Custom Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#model-customization-options">Model Customization Options</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dashboard.html">PowerAI Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nlpqueryinterface.html">NLP Query Interface</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Fault Detection and Classification in Power Systems</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Models</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/models.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="models">
+<h1>Models<a class="headerlink" href="#models" title="Link to this heading"></a></h1>
+<p>PowerAI uses a two-stage approach to detect and classify faults in power systems:
+- <strong>Anomaly Detection</strong>: An LSTM-based autoencoder identifies abnormal patterns in power system signals.
+- <strong>Fault Classification</strong>: A machine learning classifier categorizes detected anomalies into specific fault types.
+- <strong>Classification Transformer</strong>: An advanced deep learning transformer model for enhanced fault classification with sequential data understanding.</p>
+<p>This document explains the architecture, training, and usage of these models.</p>
+<figure class="align-center" id="id5">
+<img alt="PowerAI Model Architecture" src="*static/model*architecture.png" />
+<figcaption>
+<p><span class="caption-text">Two-stage model architecture for power system fault detection and classification</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<section id="anomaly-detection-model">
+<h2>Anomaly Detection Model<a class="headerlink" href="#anomaly-detection-model" title="Link to this heading"></a></h2>
+<section id="architecture">
+<h3>Architecture<a class="headerlink" href="#architecture" title="Link to this heading"></a></h3>
+<p>The anomaly detection system uses a Long Short-Term Memory (LSTM) autoencoder neural network with the following architecture:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Input Layer (shape: [batch_size, sequence_length, 6])
+↓
+LSTM Encoder (units=64, return_sequences=True)
+↓
+LSTM Encoder (units=32, return_sequences=False)
+↓
+RepeatVector (sequence_length)
+↓
+LSTM Decoder (units=32, return_sequences=True)
+↓
+LSTM Decoder (units=64, return_sequences=True)
+↓
+Time Distributed Dense (units=6, activation=&#39;linear&#39;)
+↓
+Output Layer (shape: [batch_size, sequence_length, 6])
+</pre></div>
+</div>
+<p>The model takes sequences of voltage and current measurements (Va, Vb, Vc, Ia, Ib, Ic) and attempts to reconstruct them. Anomalies are detected when the reconstruction error exceeds a threshold.</p>
+</section>
+<section id="training-process">
+<h3>Training Process<a class="headerlink" href="#training-process" title="Link to this heading"></a></h3>
+<p><strong>Data Preprocessing:</strong>
+- Normalization using StandardScaler
+- Sequence creation with a sliding window approach
+- Train-validation split (typically 80%-20%)</p>
+<p><strong>Training Parameters:</strong>
+- Loss function: Mean Squared Error (MSE)
+- Optimizer: Adam with learning rate of 0.001
+- Epochs: 100 (with early stopping)
+- Batch size: 32</p>
+<p><strong>Threshold Selection:</strong>
+- Reconstruction errors are calculated on validation data
+- Threshold is set at a high percentile (e.g., 95th or 99th) of these errors</p>
+</section>
+<section id="inference-and-anomaly-detection">
+<h3>Inference and Anomaly Detection<a class="headerlink" href="#inference-and-anomaly-detection" title="Link to this heading"></a></h3>
+<p>During inference:
+- New data is preprocessed and fed through the autoencoder
+- Reconstruction error (MSE) is calculated for each window
+- Windows with errors above the threshold are flagged as anomalies
+- Consecutive or close anomalies are merged into events</p>
+</section>
+</section>
+<section id="fault-classification-model">
+<h2>Fault Classification Model<a class="headerlink" href="#fault-classification-model" title="Link to this heading"></a></h2>
+<section id="id1">
+<h3>Architecture<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<p>The fault classifier is a machine learning model (typically a Random Forest or Gradient Boosting classifier) that takes extracted features from detected anomalies and classifies them into specific fault types.</p>
+</section>
+<section id="feature-extraction">
+<h3>Feature Extraction<a class="headerlink" href="#feature-extraction" title="Link to this heading"></a></h3>
+<p>For each detected anomaly, the following features are extracted:</p>
+<p><strong>Time-domain features:</strong>
+- Mean, standard deviation, skewness, kurtosis
+- RMS values, peak-to-peak amplitude
+- Crest factor</p>
+<p><strong>Cross-signal features:</strong>
+- Correlations between voltage and current phases
+- Phase imbalance metrics</p>
+<p><strong>Duration features:</strong>
+- Anomaly duration
+- Rise/fall times</p>
+<p>These features are combined into a feature vector for classification.</p>
+</section>
+<section id="supported-fault-types">
+<h3>Supported Fault Types<a class="headerlink" href="#supported-fault-types" title="Link to this heading"></a></h3>
+<p>The classifier is trained to recognize various power system faults, including:
+- Single-phase to ground faults
+- Phase-to-phase faults
+- Double-phase to ground faults
+- Three-phase faults</p>
+</section>
+<section id="id2">
+<h3>Training Process<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p><strong>Data Collection:</strong>
+- Simulated fault data from power system simulators
+- Real-world fault recordings (if available)
+- Augmented data to increase robustness</p>
+<p><strong>Feature Engineering:</strong>
+- Calculate all features for each fault event
+- Feature selection to identify most discriminative features
+- Feature scaling using StandardScaler</p>
+<p><strong>Model Training:</strong>
+- Cross-validation (k-fold)
+- Hyperparameter optimization
+- Class weighting for imbalanced fault types</p>
+</section>
+</section>
+<section id="classification-transformer-model">
+<h2>Classification Transformer Model<a class="headerlink" href="#classification-transformer-model" title="Link to this heading"></a></h2>
+<section id="id3">
+<h3>Architecture<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<p>The classification transformer is an advanced deep learning model that leverages transformer architecture to understand sequential patterns in power system fault data. It provides enhanced classification accuracy by learning complex temporal dependencies in the fault signals.</p>
+<p><strong>Key Features:</strong>
+- Multi-head attention mechanism for capturing signal relationships
+- Position encoding for temporal awareness
+- Deep feature extraction with transformer blocks
+- Support for sequential fault data classification</p>
+</section>
+<section id="model-components">
+<h3>Model Components<a class="headerlink" href="#model-components" title="Link to this heading"></a></h3>
+<p>The classification transformer consists of:
+- Input embedding layer for sequence data
+- Multiple transformer encoder blocks with multi-head attention
+- Classification head with dense layers
+- Dropout and normalization layers for regularization</p>
+<p><strong>Input Processing:</strong>
+- Takes sequential fault data (voltage and current measurements)
+- Applies sequence scaling and feature normalization
+- Encodes temporal information through position embeddings</p>
+</section>
+<section id="id4">
+<h3>Training Process<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<p><strong>Data Preprocessing:</strong>
+- Sequence scaling using dedicated scaler
+- Feature normalization for optimal transformer performance
+- Label encoding for multi-class fault classification</p>
+<p><strong>Training Parameters:</strong>
+- Advanced optimization with adaptive learning rates
+- Batch processing with attention masking
+- Regularization through dropout and layer normalization</p>
+</section>
+</section>
+<section id="model-evaluation">
+<h2>Model Evaluation<a class="headerlink" href="#model-evaluation" title="Link to this heading"></a></h2>
+<section id="performance-metrics">
+<h3>Performance Metrics<a class="headerlink" href="#performance-metrics" title="Link to this heading"></a></h3>
+<p><strong>Anomaly Detector:</strong>
+- Precision, Recall, F1-Score
+- Detection latency
+- False positive rate</p>
+<p><strong>Fault Classifier:</strong>
+- Classification accuracy
+- Confusion matrix
+- Per-class precision/recall</p>
+<p><strong>Classification Transformer:</strong>
+- Multi-class accuracy
+- Attention visualization for interpretability
+- Sequence-level classification confidence</p>
+</section>
+<section id="benchmark-results">
+<h3>Benchmark Results<a class="headerlink" href="#benchmark-results" title="Link to this heading"></a></h3>
+<p>On standard IEEE test systems:</p>
+</section>
+</section>
+<section id="model-file-structure">
+<h2>Model File Structure<a class="headerlink" href="#model-file-structure" title="Link to this heading"></a></h2>
+<p>The PowerAI models are stored in the following format:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>models/
+├── detector/
+│   ├── detector_model.h5         # TensorFlow LSTM autoencoder model
+│   └── detector_scaler.joblib    # StandardScaler for input preprocessing
+│
+├── classifier/
+│   ├── classifier_model.joblib   # Trained classifier model
+│   ├── classifier_scaler.joblib  # Feature scaler
+│   └── class_names.joblib        # Mapping of numerical labels to fault types
+│
+├── classification_transformer/
+│    ├── best_fault_classifier.h5       # Trained transformer model
+│    ├── complete_dl_faults_system.joblib # Complete system configuration
+│    ├── feature_scaler.joblib           # Feature preprocessing scaler
+│    ├── label_encoder.joblib            # Label encoding for fault types
+│    ├── model_metadata.joblib           # Model architecture and training metadata
+│    └── sequence_scaler.joblib          # Sequence data normalization scaler
+</pre></div>
+</div>
+</section>
+<section id="custom-models">
+<h2>Custom Models<a class="headerlink" href="#custom-models" title="Link to this heading"></a></h2>
+<section id="creating-custom-models">
+<h3>Creating Custom Models<a class="headerlink" href="#creating-custom-models" title="Link to this heading"></a></h3>
+<p>You can train custom models using your own power system data:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">powerai.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_detector</span><span class="p">,</span> <span class="n">train_classifier</span><span class="p">,</span> <span class="n">train_classification_transformer</span>
+
+<span class="c1"># Train anomaly detector</span>
+<span class="n">detector_model</span><span class="p">,</span> <span class="n">detector_scaler</span> <span class="o">=</span> <span class="n">train_detector</span><span class="p">(</span>
+    <span class="n">data_path</span><span class="o">=</span><span class="s2">&quot;path/to/normal_data.csv&quot;</span><span class="p">,</span>
+    <span class="n">sequence_length</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span>
+<span class="p">)</span>
+
+<span class="c1"># Train fault classifier</span>
+<span class="n">classifier_model</span><span class="p">,</span> <span class="n">classifier_scaler</span><span class="p">,</span> <span class="n">class_names</span> <span class="o">=</span> <span class="n">train_classifier</span><span class="p">(</span>
+    <span class="n">data_path</span><span class="o">=</span><span class="s2">&quot;path/to/fault_data.csv&quot;</span><span class="p">,</span>
+    <span class="n">feature_selection</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="c1"># Train classification transformer</span>
+<span class="n">transformer_model</span><span class="p">,</span> <span class="n">transformer_components</span> <span class="o">=</span> <span class="n">train_classification_transformer</span><span class="p">(</span>
+    <span class="n">data_path</span><span class="o">=</span><span class="s2">&quot;path/to/fault_sequences.csv&quot;</span><span class="p">,</span>
+    <span class="n">sequence_length</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">num_transformer_blocks</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+    <span class="n">attention_heads</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+    <span class="n">epochs</span><span class="o">=</span><span class="mi">150</span>
+<span class="p">)</span>
+
+<span class="c1"># Save models</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">powerai.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">save_models</span>
+<span class="n">save_models</span><span class="p">(</span>
+    <span class="n">detector_model</span><span class="p">,</span> <span class="n">detector_scaler</span><span class="p">,</span>
+    <span class="n">classifier_model</span><span class="p">,</span> <span class="n">classifier_scaler</span><span class="p">,</span> <span class="n">class_names</span><span class="p">,</span>
+    <span class="n">transformer_model</span><span class="p">,</span> <span class="n">transformer_components</span><span class="p">,</span>
+    <span class="n">output_dir</span><span class="o">=</span><span class="s2">&quot;custom_models/&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="model-customization-options">
+<h3>Model Customization Options<a class="headerlink" href="#model-customization-options" title="Link to this heading"></a></h3>
+<p><strong>Detector Customization:</strong>
+- Sequence length (window size)
+- Number of LSTM layers and units
+- Anomaly threshold percentile</p>
+<p><strong>Classifier Customization:</strong>
+- Feature selection method
+- Classifier algorithm (Random Forest, XGBoost, etc.)
+- Custom fault types</p>
+<p><strong>Classification Transformer Customization:</strong>
+- Number of transformer blocks and attention heads
+- Sequence length for temporal context
+- Feature embedding dimensions
+- Custom attention mechanisms
+- Advanced regularization techniques</p>
+</section>
+</section>
+<section id="next-steps">
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="dashboard.html"><span class="doc">PowerAI Dashboard</span></a> - Learn how to use the interactive dashboard with these models</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dashboard.html" class="btn btn-neutral float-right" title="PowerAI Dashboard" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Amine Faris.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

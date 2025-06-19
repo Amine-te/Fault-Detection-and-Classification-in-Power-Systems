@@ -1,0 +1,285 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction &mdash; Fault Detection and Classification in Power Systems 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Data Acquisition from MATLAB Simulink Models" href="data_acquisition.html" />
+    <link rel="prev" title="PowerAI: Power System Fault Detection" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Fault Detection and Classification in Power Systems
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#three-phase-electrical-systems-overview">Three-Phase Electrical Systems Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#key-advantages-of-three-phase-systems">Key Advantages of Three-Phase Systems:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#system-input-data">System Input Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#the-critical-need-for-fault-detection-and-classification">The Critical Need for Fault Detection and Classification</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#common-fault-types-in-power-systems">Common Fault Types in Power Systems:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#consequences-of-undetected-faults">Consequences of Undetected Faults:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#time-critical-detection-requirements">Time-Critical Detection Requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#why-ai-approach-vs-traditional-methods">Why AI Approach vs. Traditional Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#project-objectives">Project Objectives</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#primary-goals">Primary Goals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#expected-outcomes">Expected Outcomes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#next-steps-data-acquisition-and-modeling">Next Steps: Data Acquisition and Modeling</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data_acquisition.html">Data Acquisition from MATLAB Simulink Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dashboard.html">PowerAI Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nlpqueryinterface.html">NLP Query Interface</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Fault Detection and Classification in Power Systems</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/introduction.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h1>
+<p>PowerAI represents a cutting-edge solution for automated fault detection and classification in three-phase electrical power systems. By leveraging advanced artificial intelligence and deep learning techniques, this project addresses the critical challenges of maintaining power grid reliability and safety in modern electrical infrastructure.</p>
+<p>—</p>
+<section id="three-phase-electrical-systems-overview">
+<h2>Three-Phase Electrical Systems Overview<a class="headerlink" href="#three-phase-electrical-systems-overview" title="Link to this heading"></a></h2>
+<a class="reference internal image-reference" href="_images/Windows-Live-Writer-Three-Phase-Power-Simplified_CC06-ThreePhasePower_2.png"><img alt="Three-Phase Electrical System Overview" class="align-center" src="_images/Windows-Live-Writer-Three-Phase-Power-Simplified_CC06-ThreePhasePower_2.png" style="width: 600px;" />
+</a>
+<p>Three-phase electrical systems form the backbone of modern energy distribution infrastructure. These systems consist of three phase conductors (R, S, T) offset by 120° and a neutral conductor, enabling efficient electrical energy transmission.</p>
+<section id="key-advantages-of-three-phase-systems">
+<h3>Key Advantages of Three-Phase Systems:<a class="headerlink" href="#key-advantages-of-three-phase-systems" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Constant Power Transmission:</strong> Provides steady, continuous power delivery</p></li>
+<li><p><strong>Load Balancing:</strong> Ensures optimal distribution of electrical loads</p></li>
+<li><p><strong>Reduced Line Losses:</strong> Minimizes energy waste during transmission</p></li>
+<li><p><strong>Equipment Optimization:</strong> Enables efficient operation of transformers and motors</p></li>
+</ul>
+</section>
+<section id="system-input-data">
+<h3>System Input Data<a class="headerlink" href="#system-input-data" title="Link to this heading"></a></h3>
+<p>Three-phase systems generate six fundamental electrical signals that contain comprehensive information about system status:</p>
+<ul class="simple">
+<li><p><strong>3 Phase Currents:</strong> IR, IS, IT (Amperes)</p></li>
+<li><p><strong>3 Phase Voltages:</strong> VR, VS, VT (Volts)</p></li>
+</ul>
+<p><strong>Information Richness:</strong> These six signals contain all necessary information to precisely characterize system state and identify anomalies with high accuracy.</p>
+<p>—</p>
+</section>
+</section>
+<section id="the-critical-need-for-fault-detection-and-classification">
+<h2>The Critical Need for Fault Detection and Classification<a class="headerlink" href="#the-critical-need-for-fault-detection-and-classification" title="Link to this heading"></a></h2>
+<a class="reference internal image-reference" href="_images/Electrical-faults-in-power-system.jpg"><img alt="Example of Power Line Fault" class="align-center" src="_images/Electrical-faults-in-power-system.jpg" style="width: 500px;" />
+</a>
+<section id="common-fault-types-in-power-systems">
+<h3>Common Fault Types in Power Systems:<a class="headerlink" href="#common-fault-types-in-power-systems" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Short Circuits:</strong> Phase-to-ground, phase-to-phase, and three-phase faults</p></li>
+<li><p><strong>Insulation Failures:</strong> Breakdown of protective insulation materials</p></li>
+<li><p><strong>Overloads and Imbalances:</strong> Excessive current or unbalanced loading conditions</p></li>
+<li><p><strong>Electrical Arc Faults:</strong> Dangerous arcing between conductors</p></li>
+</ul>
+</section>
+<section id="consequences-of-undetected-faults">
+<h3>Consequences of Undetected Faults:<a class="headerlink" href="#consequences-of-undetected-faults" title="Link to this heading"></a></h3>
+<p><strong>Safety Risks:</strong></p>
+<ul class="simple">
+<li><p>Fire hazards and potential explosions</p></li>
+<li><p>Electrocution dangers</p></li>
+<li><p>Equipment damage and failure</p></li>
+</ul>
+<p><strong>Economic Impact:</strong></p>
+<ul class="simple">
+<li><p>Production shutdowns and downtime</p></li>
+<li><p>Costly equipment replacement</p></li>
+<li><p>Revenue losses due to service interruptions</p></li>
+</ul>
+<p><strong>Service Quality:</strong></p>
+<ul class="simple">
+<li><p>Power supply disruptions</p></li>
+<li><p>Voltage fluctuations and instabilities</p></li>
+</ul>
+<p><strong>Regulatory Compliance:</strong></p>
+<ul class="simple">
+<li><p>Non-compliance with safety standards and regulations</p></li>
+<li><p>Potential legal liabilities</p></li>
+</ul>
+</section>
+<section id="time-critical-detection-requirements">
+<h3>Time-Critical Detection Requirements<a class="headerlink" href="#time-critical-detection-requirements" title="Link to this heading"></a></h3>
+<p><strong>Temporal Challenge:</strong> Fault detection must be instantaneous (within milliseconds) to prevent fault propagation and limit damage to the electrical infrastructure.</p>
+<p>—</p>
+</section>
+</section>
+<section id="why-ai-approach-vs-traditional-methods">
+<h2>Why AI Approach vs. Traditional Methods<a class="headerlink" href="#why-ai-approach-vs-traditional-methods" title="Link to this heading"></a></h2>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Comparison of AI and Traditional Fault Detection Methods</span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Traditional Methods</strong></p></th>
+<th class="head"><p><strong>PowerAI (AI-Powered Approach)</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Separate processing of current and voltage signals</p></td>
+<td><p>Simultaneous analysis of all six signals (IR, IS, IT, VR, VS, VT)</p></td>
+</tr>
+<tr class="row-odd"><td><p>RMS value-based analysis, losing transient information</p></td>
+<td><p>Full waveform and temporal sequence analysis</p></td>
+</tr>
+<tr class="row-even"><td><p>Manual threshold calibration for each installation</p></td>
+<td><p>Adaptive thresholding through continuous self-learning</p></td>
+</tr>
+<tr class="row-odd"><td><p>Simple statistical techniques with limited insights</p></td>
+<td><p>Advanced multi-dimensional feature extraction</p></td>
+</tr>
+<tr class="row-even"><td><p>Poor handling of complex, non-linear relationships</p></td>
+<td><p>Deep learning models capture non-linear interdependencies</p></td>
+</tr>
+<tr class="row-odd"><td><p>Limited to binary fault/no-fault classification</p></td>
+<td><p>Detailed fault type identification and predictive capabilities</p></td>
+</tr>
+<tr class="row-even"><td><p>High false positive rates during system transients</p></td>
+<td><p>Intelligent distinction between faults and transient events</p></td>
+</tr>
+<tr class="row-odd"><td><p>Static analysis, not adaptable to dynamic conditions</p></td>
+<td><p>Dynamic adaptation to changing system states</p></td>
+</tr>
+<tr class="row-even"><td><p>Minimal pattern recognition capabilities</p></td>
+<td><p>Advanced pattern recognition using neural networks</p></td>
+</tr>
+</tbody>
+</table>
+<p>—</p>
+</section>
+<section id="project-objectives">
+<h2>Project Objectives<a class="headerlink" href="#project-objectives" title="Link to this heading"></a></h2>
+<section id="primary-goals">
+<h3>Primary Goals<a class="headerlink" href="#primary-goals" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Develop Advanced AI Models:</strong> Create sophisticated neural network architectures capable of real-time fault detection and classification</p></li>
+<li><p><strong>Achieve High Accuracy:</strong> Minimize false positives while maintaining maximum sensitivity to actual faults</p></li>
+<li><p><strong>Enable Real-Time Processing:</strong> Ensure millisecond-level response times for critical fault scenarios</p></li>
+<li><p><strong>Provide Comprehensive Analysis:</strong> Deliver detailed fault classification and system health insights</p></li>
+</ol>
+</section>
+<section id="expected-outcomes">
+<h3>Expected Outcomes<a class="headerlink" href="#expected-outcomes" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Improved Power System Reliability:</strong> Reduce unplanned outages and equipment failures</p></li>
+<li><p><strong>Enhanced Safety:</strong> Minimize risks of electrical accidents and equipment damage</p></li>
+<li><p><strong>Cost Reduction:</strong> Lower maintenance costs through predictive fault detection</p></li>
+<li><p><strong>Operational Efficiency:</strong> Streamline power system monitoring and management</p></li>
+</ul>
+<p>—</p>
+</section>
+</section>
+<section id="next-steps-data-acquisition-and-modeling">
+<h2>Next Steps: Data Acquisition and Modeling<a class="headerlink" href="#next-steps-data-acquisition-and-modeling" title="Link to this heading"></a></h2>
+<p>The foundation of any successful AI system lies in high-quality, representative training data. In the following section, we will explore how we obtained comprehensive fault data through advanced simulation techniques using an existing MATLAB Simulink model sourced from the open-source community.</p>
+<p>→ Continue to: <a class="reference internal" href="data_acquisition.html"><span class="doc">Data Acquisition from Simulink Models</span></a></p>
+<p>Our next presentation will detail:</p>
+<ul class="simple">
+<li><p>Sourcing and adapting an existing Simulink model for three-phase power systems</p></li>
+<li><p>Understanding the model architecture and fault simulation capabilities</p></li>
+<li><p>Data extraction and preprocessing methods</p></li>
+<li><p>Dataset preparation for machine learning training</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="PowerAI: Power System Fault Detection" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="data_acquisition.html" class="btn btn-neutral float-right" title="Data Acquisition from MATLAB Simulink Models" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Amine Faris.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

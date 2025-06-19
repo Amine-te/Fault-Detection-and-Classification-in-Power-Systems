@@ -1,0 +1,384 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Acquisition from MATLAB Simulink Models &mdash; Fault Detection and Classification in Power Systems 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation Guide" href="installation.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Fault Detection and Classification in Power Systems
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Data Acquisition from MATLAB Simulink Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#power-system-model-architecture">Power System Model Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#model-source-and-attribution">Model Source and Attribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#system-configuration">System Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#fault-simulation-strategy">Fault Simulation Strategy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#comprehensive-fault-coverage">Comprehensive Fault Coverage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fault-parameter-variations">Fault Parameter Variations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#data-collection-and-processing">Data Collection and Processing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#simulation-execution">Simulation Execution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-structure-and-organization">Data Structure and Organization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#quality-assurance-and-validation">Quality Assurance and Validation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#data-integrity-checks">Data Integrity Checks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dataset-characteristics">Dataset Characteristics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#data-export-and-preparation">Data Export and Preparation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#export-formats">Export Formats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sample-data-structure">Sample Data Structure</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#advantages-of-simulation-based-data">Advantages of Simulation-Based Data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dashboard.html">PowerAI Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nlpqueryinterface.html">NLP Query Interface</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Fault Detection and Classification in Power Systems</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Data Acquisition from MATLAB Simulink Models</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/data_acquisition.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="data-acquisition-from-matlab-simulink-models">
+<h1>Data Acquisition from MATLAB Simulink Models<a class="headerlink" href="#data-acquisition-from-matlab-simulink-models" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The success of any machine learning-based fault detection system heavily depends on the quality and comprehensiveness of the training data. For PowerAI, we utilized advanced MATLAB Simulink simulation to generate a robust dataset of three-phase power system behaviors under both normal and fault conditions. This approach allows us to create controlled, labeled datasets that would be extremely difficult and dangerous to obtain from real power systems.</p>
+</section>
+<section id="power-system-model-architecture">
+<h2>Power System Model Architecture<a class="headerlink" href="#power-system-model-architecture" title="Link to this heading"></a></h2>
+<a class="reference internal image-reference" href="_images/model_architecture.png"><img alt="MATLAB Simulink Power System Model" class="align-center" src="_images/model_architecture.png" style="width: 800px;" />
+</a>
+<section id="model-source-and-attribution">
+<h3>Model Source and Attribution<a class="headerlink" href="#model-source-and-attribution" title="Link to this heading"></a></h3>
+<p><strong>Important Note:</strong> The Simulink power system model used in this project was sourced from an open-source GitHub repository rather than developed from scratch. This approach allowed us to leverage existing, validated power system models and focus our efforts on the AI development aspects of the project.</p>
+<dl class="simple">
+<dt><strong>Model Source:</strong></dt><dd><ul class="simple">
+<li><p><strong>Repository:</strong> <a class="reference external" href="https://github.com/KingArthur000/Electrical-Fault-detection-and-classification">https://github.com/KingArthur000/Electrical-Fault-detection-and-classification</a></p></li>
+<li><p><strong>Original Author:</strong> KingArthur000</p></li>
+<li><p><strong>Modifications:</strong> Adapted for our specific fault simulation requirements</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="system-configuration">
+<h3>System Configuration<a class="headerlink" href="#system-configuration" title="Link to this heading"></a></h3>
+<p>The power system model represents a realistic transmission network with the following key components:</p>
+<dl class="simple">
+<dt><strong>Power Generation:</strong></dt><dd><ul class="simple">
+<li><p><strong>4 Generators:</strong> Each rated at 11 × 10³ V (11 kV)</p></li>
+<li><p><strong>Configuration:</strong> Two generator pairs positioned at opposite ends of the transmission line</p></li>
+<li><p><strong>Generation Capacity:</strong> Designed to simulate realistic power generation scenarios</p></li>
+</ul>
+</dd>
+<dt><strong>Transmission Infrastructure:</strong></dt><dd><ul class="simple">
+<li><p><strong>Transmission Line:</strong> High-voltage power transmission line connecting generation sources</p></li>
+<li><p><strong>Transformers:</strong> Step-up and step-down transformers positioned between generators and transmission line</p></li>
+<li><p><strong>Fault Location:</strong> Midpoint of the transmission line selected as the primary fault injection point</p></li>
+</ul>
+</dd>
+<dt><strong>Measurement Points:</strong></dt><dd><ul class="simple">
+<li><p><strong>Line Voltages:</strong> Three-phase voltage measurements (VR, VS, VT)</p></li>
+<li><p><strong>Line Currents:</strong> Three-phase current measurements (IR, IS, IT)</p></li>
+<li><p><strong>Sampling Location:</strong> Output side of the power system for comprehensive signal capture</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</section>
+<section id="fault-simulation-strategy">
+<h2>Fault Simulation Strategy<a class="headerlink" href="#fault-simulation-strategy" title="Link to this heading"></a></h2>
+<section id="comprehensive-fault-coverage">
+<h3>Comprehensive Fault Coverage<a class="headerlink" href="#comprehensive-fault-coverage" title="Link to this heading"></a></h3>
+<p>To ensure our AI model can detect and classify various types of electrical faults, we systematically simulated multiple fault scenarios that commonly occur in real power systems.</p>
+<p><strong>Fault Types Simulated:</strong></p>
+<dl class="simple">
+<dt><strong>Single-Phase Faults:</strong></dt><dd><ul class="simple">
+<li><p><strong>Line-to-Ground (LG) Faults:</strong> Phase R-Ground, Phase S-Ground, Phase T-Ground</p></li>
+<li><p><strong>Characteristics:</strong> Most common type of fault in power systems (~80% of all faults)</p></li>
+<li><p><strong>Simulation Parameters:</strong> Variable fault resistance and inception angles</p></li>
+</ul>
+</dd>
+<dt><strong>Multi-Phase Faults:</strong></dt><dd><ul class="simple">
+<li><p><strong>Line-to-Line (LL) Faults:</strong> RS, ST, TR phase combinations</p></li>
+<li><p><strong>Line-to-Line-to-Ground (LLG) Faults:</strong> Two-phase faults with ground connection</p></li>
+<li><p><strong>Three-Phase (LLL) Faults:</strong> Balanced and unbalanced three-phase faults</p></li>
+<li><p><strong>Three-Phase-to-Ground (LLLG) Faults:</strong> Most severe fault condition</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Example: Line-to-Ground (LG) Fault Analysis</strong></p>
+<a class="reference internal image-reference" href="_images/example_lg.png"><img alt="Example of LG Fault Simulation" class="align-center" src="_images/example_lg.png" style="width: 600px;" />
+</a>
+<p>The above figure demonstrates a typical Line-to-Ground fault simulation showing the characteristic voltage and current waveforms during fault inception and clearing.</p>
+</section>
+<section id="fault-parameter-variations">
+<h3>Fault Parameter Variations<a class="headerlink" href="#fault-parameter-variations" title="Link to this heading"></a></h3>
+<p>To create a comprehensive dataset that represents real-world conditions, each fault type was simulated with various parameters:</p>
+<dl class="simple">
+<dt><strong>Fault Inception Time:</strong></dt><dd><ul class="simple">
+<li><p><strong>Range:</strong> 0.1s to 0.9s within the simulation cycle</p></li>
+<li><p><strong>Purpose:</strong> Capture fault behavior at different points in the AC waveform</p></li>
+<li><p><strong>Variations:</strong> Multiple inception times for each fault type</p></li>
+</ul>
+</dd>
+<dt><strong>Fault Resistance:</strong></dt><dd><ul class="simple">
+<li><p><strong>Low Resistance Faults:</strong> 0.01Ω - 1Ω (solid faults)</p></li>
+<li><p><strong>Medium Resistance Faults:</strong> 1Ω - 10Ω (arc faults)</p></li>
+<li><p><strong>High Resistance Faults:</strong> 10Ω - 100Ω (incipient faults)</p></li>
+</ul>
+</dd>
+<dt><strong>Fault Duration:</strong></dt><dd><ul class="simple">
+<li><p><strong>Temporary Faults:</strong> 0.1s - 0.5s</p></li>
+<li><p><strong>Permanent Faults:</strong> 0.5s - 2.0s</p></li>
+<li><p><strong>Clearing Time:</strong> Variable based on protection system response</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Switching Time Analysis</strong></p>
+<a class="reference internal image-reference" href="_images/faults.jpg"><img alt="Example of Switching Time Analysis" class="align-center" src="_images/faults.jpg" style="width: 650px;" />
+</a>
+<p>The switching time analysis shows the precise timing of fault inception and clearing for different fault scenarios, which is crucial for training the AI model to recognize transient behaviors.</p>
+</section>
+</section>
+<section id="data-collection-and-processing">
+<h2>Data Collection and Processing<a class="headerlink" href="#data-collection-and-processing" title="Link to this heading"></a></h2>
+<section id="simulation-execution">
+<h3>Simulation Execution<a class="headerlink" href="#simulation-execution" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt><strong>Simulation Parameters:</strong></dt><dd><ul class="simple">
+<li><p><strong>Total Simulation Time:</strong> 5.0 seconds per scenario</p></li>
+<li><p><strong>Sampling Rate:</strong> 20 kHz (20,000 samples per second)</p></li>
+<li><p><strong>Time Step:</strong> 50 microseconds</p></li>
+</ul>
+</dd>
+<dt><strong>Data Points Generated:</strong></dt><dd><ul class="simple">
+<li><p><strong>Approximately 100,000 data points</strong> collected across all simulation scenarios</p></li>
+<li><p><strong>6 Signal Channels:</strong> IR, IS, IT, VR, VS, VT for each data point</p></li>
+<li><p><strong>Temporal Resolution:</strong> High-frequency sampling to capture transient phenomena</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="data-structure-and-organization">
+<h3>Data Structure and Organization<a class="headerlink" href="#data-structure-and-organization" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt><strong>Raw Data Format:</strong></dt><dd><ul class="simple">
+<li><p><strong>File Format:</strong> MATLAB .mat files and CSV exports</p></li>
+<li><p><strong>Signal Organization:</strong> Time-series data for each of the 6 electrical parameters</p></li>
+<li><p><strong>Metadata:</strong> Fault type, inception time, resistance, duration for each scenario</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Data Labeling Strategy:</strong></p>
+<dl class="simple">
+<dt><strong>Normal Operation:</strong></dt><dd><ul class="simple">
+<li><p><strong>Conditions:</strong> Balanced load, steady-state operation</p></li>
+<li><p><strong>Duration:</strong> Full simulation periods without fault injection</p></li>
+</ul>
+</dd>
+<dt><strong>Fault Conditions:</strong></dt><dd><ul class="simple">
+<li><p><strong>LG Faults:</strong> (R-G, S-G, T-G respectively)</p></li>
+<li><p><strong>LL Faults:</strong> (RS, ST, TR respectively)</p></li>
+<li><p><strong>LLG Faults:</strong> (RSG, STG, TRG respectively)</p></li>
+<li><p><strong>LLL Faults:</strong> (Three-phase fault)</p></li>
+<li><p><strong>LLLG Faults:</strong> (Three-phase-to-ground fault)</p></li>
+</ul>
+</dd>
+</dl>
+<a class="reference internal image-reference" href="_images/all_faults.png"><img alt="Comparison of All Simulated Fault Types" class="align-center" src="_images/all_faults.png" style="width: 750px;" />
+</a>
+</section>
+</section>
+<section id="quality-assurance-and-validation">
+<h2>Quality Assurance and Validation<a class="headerlink" href="#quality-assurance-and-validation" title="Link to this heading"></a></h2>
+<section id="data-integrity-checks">
+<h3>Data Integrity Checks<a class="headerlink" href="#data-integrity-checks" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt><strong>Signal Validation:</strong></dt><dd><ul class="simple">
+<li><p><strong>Physical Constraints:</strong> Verification that voltage and current values remain within realistic bounds</p></li>
+<li><p><strong>Energy Conservation:</strong> Ensuring power balance equations are satisfied</p></li>
+<li><p><strong>Frequency Domain Analysis:</strong> FFT analysis to verify signal characteristics</p></li>
+</ul>
+</dd>
+<dt><strong>Simulation Accuracy:</strong></dt><dd><ul class="simple">
+<li><p><strong>Model Verification:</strong> Comparison with established power system analysis results</p></li>
+<li><p><strong>Fault Behavior Validation:</strong> Ensuring simulated faults exhibit expected electrical characteristics</p></li>
+<li><p><strong>Transient Analysis:</strong> Verification of fault inception and clearing transients</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="dataset-characteristics">
+<h3>Dataset Characteristics<a class="headerlink" href="#dataset-characteristics" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt><strong>Data Distribution:</strong></dt><dd><ul class="simple">
+<li><p><strong>Normal Conditions:</strong> ~50% of total dataset</p></li>
+<li><p><strong>Single-phase Faults:</strong> ~30% of total dataset (reflecting real-world frequency)</p></li>
+<li><p><strong>Multi-phase Faults:</strong> ~20% of total dataset</p></li>
+<li><p><strong>Balanced Distribution:</strong> Ensuring adequate representation of each fault type</p></li>
+</ul>
+</dd>
+<dt><strong>Signal Quality:</strong></dt><dd><ul class="simple">
+<li><p><strong>High Signal-to-Noise Ratio:</strong> Clean simulation data without measurement noise</p></li>
+<li><p><strong>Consistent Sampling:</strong> Uniform time intervals across all scenarios</p></li>
+<li><p><strong>Complete Waveforms:</strong> Full capture of fault transients from inception to clearing</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</section>
+<section id="data-export-and-preparation">
+<h2>Data Export and Preparation<a class="headerlink" href="#data-export-and-preparation" title="Link to this heading"></a></h2>
+<section id="export-formats">
+<h3>Export Formats<a class="headerlink" href="#export-formats" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt><strong>For Machine Learning Processing:</strong></dt><dd><ul class="simple">
+<li><p><strong>CSV Files:</strong> Structured data with timestamps, signal values, and labels</p></li>
+<li><p><strong>NumPy Arrays:</strong> Direct import into Python-based ML frameworks</p></li>
+</ul>
+</dd>
+<dt><strong>Data Preprocessing Pipeline:</strong></dt><dd><ul class="simple">
+<li><p><strong>Normalization:</strong> Scaling voltage and current signals to appropriate ranges</p></li>
+<li><p><strong>Feature Extraction:</strong> Calculation of RMS values, harmonics, and statistical features</p></li>
+<li><p><strong>Windowing:</strong> Segmentation of continuous signals into analysis windows</p></li>
+<li><p><strong>Label Encoding:</strong> Conversion of fault categories into numerical labels</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="sample-data-structure">
+<h3>Sample Data Structure<a class="headerlink" href="#sample-data-structure" title="Link to this heading"></a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Timestamp | Ia    | Ib    | Ic    | Va     | Vb     | Vc
+0.000100  | 245.3 | -122.1| -123.2| 6350.2 | -3175.1| -3175.1
+0.000200  | 244.8 | -121.9| -122.9| 6348.7 | -3174.3| -3174.4
+...
+0.150000  | 1250.4| -125.2| -124.1| 2100.3 | -3180.1| -3185.2
+0.150100  | 1275.8| -126.1| -125.3| 1950.7 | -3185.4| -3190.1
+</pre></div>
+</div>
+</section>
+</section>
+<section id="advantages-of-simulation-based-data">
+<h2>Advantages of Simulation-Based Data<a class="headerlink" href="#advantages-of-simulation-based-data" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt><strong>Safety and Practicality:</strong></dt><dd><ul class="simple">
+<li><p><strong>No Risk:</strong> Eliminates dangers associated with creating real faults in power systems</p></li>
+<li><p><strong>Controlled Environment:</strong> Precise control over fault parameters and timing</p></li>
+<li><p><strong>Reproducibility:</strong> Consistent results for repeated simulations</p></li>
+</ul>
+</dd>
+<dt><strong>Comprehensive Coverage:</strong></dt><dd><ul class="simple">
+<li><p><strong>Rare Events:</strong> Ability to simulate uncommon but critical fault scenarios</p></li>
+<li><p><strong>Parameter Variations:</strong> Systematic exploration of fault parameter space</p></li>
+<li><p><strong>Complete Fault Cycles:</strong> Full capture of fault inception, development, and clearing</p></li>
+</ul>
+</dd>
+<dt><strong>Cost Effectiveness:</strong></dt><dd><ul class="simple">
+<li><p><strong>No Equipment Damage:</strong> Avoids costly damage to real power system equipment</p></li>
+<li><p><strong>Rapid Data Generation:</strong> Quick generation of large, labeled datasets</p></li>
+<li><p><strong>Iterative Refinement:</strong> Easy modification of simulation parameters</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="introduction.html" class="btn btn-neutral float-left" title="Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="installation.html" class="btn btn-neutral float-right" title="Installation Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Amine Faris.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

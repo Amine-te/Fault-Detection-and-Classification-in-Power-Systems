@@ -1,6 +1,6 @@
-===================================
+=====================================
 PowerAI: Power System Fault Detection
-===================================
+=====================================
 
 .. image:: _static/transmission_line.png
    :alt: PowerAI Logo
