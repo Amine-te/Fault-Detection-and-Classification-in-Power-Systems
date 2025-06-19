@@ -41,7 +41,7 @@ Three-phase systems generate six fundamental electrical signals that contain com
 The Critical Need for Fault Detection and Classification
 ========================================================
 
-.. image:: _static/fire-burning-on-electric-pole-260nw-1085248568.webp
+.. image:: _static/Electrical-faults-in-power-system.jpg
    :alt: Example of Power Line Fault
    :align: center
    :width: 500px
@@ -89,76 +89,30 @@ Time-Critical Detection Requirements
 Why AI Approach vs. Traditional Methods
 ========================================
 
-Limitations of Traditional Methods
------------------------------------
+.. list-table:: Comparison of AI and Traditional Fault Detection Methods
+   :widths: 30 30
+   :header-rows: 1
 
-Traditional fault detection methods often fall short in modern complex power systems due to several inherent limitations:
-
-**Signal Analysis:**
-
-* Separate processing of current and voltage signals
-* Limited correlation analysis between parameters
-* Inability to capture complex interdependencies
-
-**Data Processing:**
-
-* Reliance on RMS average values only
-* Loss of temporal information and transient details
-* Simplified statistical approaches
-
-**Correlation Analysis:**
-
-* Treatment of parameters as isolated variables
-* Missing non-linear relationships between signals
-* Limited pattern recognition capabilities
-
-**System Calibration:**
-
-* Manual adjustment requirements for each installation
-* Static threshold settings
-* Inability to adapt to changing system conditions
-
-**Classification Capabilities:**
-
-* Basic fault/no-fault binary classification
-* Limited fault type identification
-* High false positive rates during system transients
-
-PowerAI's Deep Learning Advantage
-----------------------------------
-
-Our innovative AI-powered approach overcomes traditional limitations through:
-
-**Advanced Signal Processing:**
-
-* Simultaneous analysis of all six electrical signals (IR, IS, IT, VR, VS, VT)
-* Complete waveform analysis with temporal information preservation
-* Multi-dimensional feature extraction and pattern recognition
-
-**Intelligent Data Utilization:**
-
-* Processing of complete waveforms rather than just RMS values
-* Temporal sequence analysis for transient behavior understanding
-* Advanced signal preprocessing and noise reduction
-
-**Sophisticated Correlation Analysis:**
-
-* Non-linear relationship modeling between all six parameters
-* Complex pattern recognition across multiple signal dimensions
-* Dynamic correlation analysis adapting to system conditions
-
-**Adaptive Learning:**
-
-* Continuous self-learning and system adaptation
-* Automatic threshold adjustment based on operating conditions
-* No manual calibration required for different installations
-
-**Precise Classification:**
-
-* Detailed fault type identification and categorization
-* Intelligent distinction between real faults and system transients
-* Significantly reduced false positive rates
-* Predictive capabilities for early fault warning
+   * - **Traditional Methods**
+     - **PowerAI (AI-Powered Approach)**
+   * - Separate processing of current and voltage signals
+     - Simultaneous analysis of all six signals (IR, IS, IT, VR, VS, VT)
+   * - RMS value-based analysis, losing transient information
+     - Full waveform and temporal sequence analysis
+   * - Manual threshold calibration for each installation
+     - Adaptive thresholding through continuous self-learning
+   * - Simple statistical techniques with limited insights
+     - Advanced multi-dimensional feature extraction
+   * - Poor handling of complex, non-linear relationships
+     - Deep learning models capture non-linear interdependencies
+   * - Limited to binary fault/no-fault classification
+     - Detailed fault type identification and predictive capabilities
+   * - High false positive rates during system transients
+     - Intelligent distinction between faults and transient events
+   * - Static analysis, not adaptable to dynamic conditions
+     - Dynamic adaptation to changing system states
+   * - Minimal pattern recognition capabilities
+     - Advanced pattern recognition using neural networks
 
 ---
 
