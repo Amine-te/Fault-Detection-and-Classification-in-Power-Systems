@@ -187,7 +187,7 @@ Best Classical ML Model Analysis: Random Forest
    :alt: Random Forest Confusion Matrix
    :align: center
 
-.. image:: _static/feature_importance
+.. image:: _static/feature_importance.png
    :alt: Random Forest Feature Importance
    :align: center
 
@@ -428,7 +428,3 @@ Conclusion
 The comprehensive evaluation demonstrates that deep learning approaches, particularly the Transformer model, provide superior performance for electrical fault classification compared to classical machine learning methods. The 97.7% accuracy achieved by the Transformer model, combined with its improved ability to distinguish between similar fault types (LLL vs LLLG), makes it the recommended approach for production deployment.
 
 The classical Random Forest model remains valuable for scenarios requiring interpretability and when computational resources are limited, providing excellent baseline performance at 96.2% accuracy. The combination of both approaches offers flexibility in addressing different deployment requirements and constraints.
-
-.. image:: /images/final_system_architecture.png
-   :alt: Final System Architecture
-   :align: center
