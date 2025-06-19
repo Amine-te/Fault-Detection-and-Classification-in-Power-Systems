@@ -53,34 +53,6 @@ Key Features
 - **Feature Importance Analysis:** Advanced analytics to understand fault signatures and identify the most critical indicators for different fault types
 - **Multi-signal Processing:** Comprehensive analysis of voltage and current measurements across multiple phases and system components
 
-**Advanced Features**
-
-- **Predictive Maintenance:** Early warning system for equipment degradation before critical failures occur
-- **Historical Analysis:** Trend analysis and pattern recognition in historical fault data
-- **Custom Alert System:** Configurable notifications and alert thresholds for different fault severity levels
-- **Export Capabilities:** Generate detailed reports and export data for further analysis
-- **API Integration:** RESTful API for integration with existing power system management tools
-
-Technical Architecture
-======================
-
-**Machine Learning Pipeline**
-
-- Data preprocessing and feature extraction
-- Autoencoder-based anomaly detection
-- Multi-class classification for fault type identification
-- Real-time inference engine
-- Model performance monitoring and retraining capabilities
-
-**System Components**
-
-- Data acquisition module
-- Signal processing engine  
-- ML model inference service
-- Web dashboard frontend
-- Database management system
-- API gateway and security layer
-
 Contents
 ========
 
