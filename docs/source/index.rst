@@ -61,7 +61,8 @@ Contents
    introduction
    data_acquisition
    installation
-   models
+   fault_detection
+   fault_classification
    dashboard
    nlpqueryinterface
 
