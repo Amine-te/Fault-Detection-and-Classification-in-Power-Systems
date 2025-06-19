@@ -188,7 +188,7 @@ Performance Metrics
 Reconstruction Error Analysis
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: docs/source/_static/reconstruction error.png
+.. figure:: _static/reconstruction error.png
    :alt: Reconstruction error comparison between models
    :align: center
    :width: 800px
@@ -198,7 +198,7 @@ Reconstruction Error Analysis
 LSTM Detection Results
 ~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: docs/source/_static/lstm_re.png
+.. figure:: _static/lstm_re.png
    :alt: LSTM anomaly detection results
    :align: center
    :width: 800px
