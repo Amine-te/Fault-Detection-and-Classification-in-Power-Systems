@@ -2,28 +2,84 @@
 PowerAI: Power System Fault Detection
 ===================================
 
+.. image:: _static/transmission_line.jpg
+   :alt: PowerAI Logo
+   :align: center
+   :width: 400px
+
+|
+
 PowerAI is an advanced AI solution for detecting and classifying faults in electrical power systems using machine learning and deep learning techniques.
+
+Project Information
+===================
+
+**Institution:** ENSAM-Meknes
+
+**Field of Study:** GIATD
+
+**Project Period:** [01/2025] - [06/2025]
+
+**Supervisor:** Pr. Tawfik Masrour
+
+Team Members
+============
+
+**Team Member 1:** Amine FARIS
+
+**Team Member 2:** Abderrahman ESSAFI
+
+Project Overview
+================
+
+PowerAI addresses the critical need for intelligent fault detection in modern power systems. As electrical grids become increasingly complex and interconnected, traditional fault detection methods often fall short in identifying subtle anomalies and emerging fault patterns. This project leverages cutting-edge artificial intelligence techniques to provide real-time, accurate, and interpretable fault detection capabilities.
+
+**Problem Statement**
+
+Power system faults can lead to equipment damage, service interruptions, and safety hazards. Early detection and accurate classification of these faults are essential for maintaining grid stability and reliability.
+
+**Solution Approach**
+
+Our AI-driven solution combines advanced signal processing with deep learning models to automatically detect, classify, and analyze power system anomalies in real-time, providing operators with actionable insights and early warning capabilities.
 
 Key Features
 ============
 
-- Real-time anomaly detection in power system signals using autoencoder neural networks
-- Automatic fault classification of detected anomalies
-- Interactive dashboard for visualizing data and detected faults
-- Feature importance analysis to understand fault signatures
-- Comprehensive signal processing for voltage and current measurements
+**Core Capabilities**
 
-Encadrant
-===================
-Pr. Tawfik Masrour
+- **Real-time Anomaly Detection:** Advanced autoencoder neural networks continuously monitor power system signals to identify deviations from normal operation patterns
+- **Intelligent Fault Classification:** Automatic categorization of detected anomalies into specific fault types (short circuits, ground faults, equipment failures, etc.)
+- **Interactive Monitoring Dashboard:** Comprehensive web-based interface for real-time visualization of system status, detected faults, and historical trends
+- **Feature Importance Analysis:** Advanced analytics to understand fault signatures and identify the most critical indicators for different fault types
+- **Multi-signal Processing:** Comprehensive analysis of voltage and current measurements across multiple phases and system components
 
-Membres de l'équipe
-===================
-Amine Faris, Abderrahman Es-safi
+**Advanced Features**
 
-Fillère
-===================
-GIATD:SI ENSAM Meknès
+- **Predictive Maintenance:** Early warning system for equipment degradation before critical failures occur
+- **Historical Analysis:** Trend analysis and pattern recognition in historical fault data
+- **Custom Alert System:** Configurable notifications and alert thresholds for different fault severity levels
+- **Export Capabilities:** Generate detailed reports and export data for further analysis
+- **API Integration:** RESTful API for integration with existing power system management tools
+
+Technical Architecture
+======================
+
+**Machine Learning Pipeline**
+
+- Data preprocessing and feature extraction
+- Autoencoder-based anomaly detection
+- Multi-class classification for fault type identification
+- Real-time inference engine
+- Model performance monitoring and retraining capabilities
+
+**System Components**
+
+- Data acquisition module
+- Signal processing engine  
+- ML model inference service
+- Web dashboard frontend
+- Database management system
+- API gateway and security layer
 
 Contents
 ========
@@ -41,14 +97,10 @@ Contents
 Get Started
 ===========
 
-To get started with PowerAI, follow the :doc:`installation guide <installation>` and check out the :doc:`usage examples <usage>`.
+Ready to start using PowerAI? Follow these steps:
 
-System Requirements
-===================
-
-- Python 3.8+
-- TensorFlow 2.6+
-- Scikit-learn 1.0+
-- 4GB+ RAM for model training
-- GPU recommended for large datasets and complex models
-
+1. **Installation:** Begin with our comprehensive :doc:`installation guide <installation>` to set up your development environment
+2. **Quick Start:** Try the :doc:`quick start tutorial <quickstart>` to get PowerAI running with sample data
+3. **Explore Models:** Learn about the AI models in our :doc:`models documentation <models>`
+4. **Dashboard Tour:** Discover the monitoring capabilities in the :doc:`dashboard guide <dashboard>`
+5. **Advanced Usage:** Check out :doc:`tutorials <tutorials>` for advanced use cases and customization
