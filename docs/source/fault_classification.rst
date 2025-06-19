@@ -161,8 +161,8 @@ Model Rankings
    :header-rows: 1
    :widths: 30 20
 
-   * - Modèle
-     - Score Final
+   * - Model
+     - Final Score
    * - Random Forest
      - 0.9317
    * - K-nearest Neighbors
